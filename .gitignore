@@ -1,6 +1,7 @@
 *
 !.gitignore
 !README.md
+!AGENTS.md
 !.agents/
 !.agents/skills/
 !.agents/skills/**

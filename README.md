@@ -13,6 +13,7 @@
     wiki-init/
     wiki-lint/
     wiki-query/
+    req-mem/
 ```
 
 每个 skill 目录通常包含：
@@ -26,6 +27,7 @@
 - `wiki-init`
 - `wiki-lint`
 - `wiki-query`
+- `req-mem`
 
 ## 仓库约定
 
