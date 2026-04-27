@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "always_on_groups": [
+    "core"
+  ],
+  "active_groups": [
+    "core",
+    "wiki",
+    "gesp",
+    "memory"
+  ],
+  "group_rules": {
+    "wiki": {
+      "prefixes": [
+        "wiki-"
+      ]
+    },
+    "gesp": {
+      "prefixes": [
+        "gesp-"
+      ]
+    },
+    "memory": {
+      "exact": [
+        "req-mem"
+      ]
+    },
+    "core": {
+      "exact": [
+        "skill-group-switcher"
+      ]
+    }
+  }
+}
