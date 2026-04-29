@@ -4,7 +4,8 @@
     "core"
   ],
   "active_groups": [
-    "core"
+    "core",
+    "gesp"
   ],
   "group_rules": {
     "wiki": {

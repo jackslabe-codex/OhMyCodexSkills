@@ -1,0 +1,71 @@
+{
+  "exam": "gesp",
+  "subject": "cpp",
+  "candidate_id": "default",
+  "concepts": [
+    {
+      "concept_id": "concept-number-theory",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-complexity",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-cpp-high-precision",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-linked-list",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-binary-search",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-recursion",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-divide-and-conquer",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    },
+    {
+      "concept_id": "concept-greedy",
+      "mastery_level": "unknown",
+      "attempt_count": 0,
+      "correct_count": 0,
+      "last_attempt_at": "",
+      "last_question_ids": []
+    }
+  ]
+}
