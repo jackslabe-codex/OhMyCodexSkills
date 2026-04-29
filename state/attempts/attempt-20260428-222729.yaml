@@ -1,0 +1,41 @@
+{
+  "attempt_id": "attempt-20260428-222729",
+  "created_at": "2026-04-28 22:27:29",
+  "filters": {
+    "concepts": "",
+    "paper": "2026-03",
+    "wrong_only": false,
+    "count": 3
+  },
+  "questions": [
+    {
+      "question_id": "question-2026-03-01",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "question_type": "single_choice",
+      "correct_answer": "D",
+      "stem_text": "关于单链表、双链表和循环链表，下列说法正确的是（ ）。\n\nA. 在单链表中，若已知任意结点的指针，则可以在 $O(1)$ 时间内删除该结点。\n\nB. 循环链表中一定不存在空指针。\n\nC. 在循环双链表中，尾结点的 next 指针一定为 nullptr。\n\nD. 在带头结点的循环单链表中，判定链表是否为空只需判断头结点的 next 是否指向自身。"
+    },
+    {
+      "question_id": "question-2026-03-02",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "question_type": "single_choice",
+      "correct_answer": "C",
+      "stem_text": "双向循环链表中要在结点 p 之前插入新结点 s（均非空），以下指针操作正确的是（ ）。\n\nA.\n```cpp\ns -> next = p;\np -> prev = s;\np -> next = s;\ns -> prev = p;\n```\n\nB.\n```cpp\ns -> prev = p;\ns -> next = p -> next;\np -> next -> prev = s;\np -> next = s;\n```\n\nC.\n```cpp\ns -> next = p;\ns -> prev = p->prev;\np -> prev -> next = s;\np -> prev = s;\n```\n\nD.\n```cpp\ns -> next = p;\ns -> prev = nullptr;\np -> prev = s;\n```"
+    },
+    {
+      "question_id": "question-2026-03-03",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "question_type": "single_choice",
+      "correct_answer": "B",
+      "stem_text": "下面函数用“哑结点”统一处理删除单向链表中的头结点与中间结点。横线处应填（ ）。\n\n```cpp\nstruct Node{\n    int val;\n    Node* next;\n    Node(int v):val(v),next(nullptr){}\n};\n\nNode* eraseAll(Node* head, int x){\n    Node dummy(0);\n    dummy.next = head;\n    Node* cur = &dummy;\n    while(cur->next){\n        if(cur->next->val == x){\n            Node* del = cur->next;\n            ______________________\n            delete del;\n        }else cur = cur->next;\n    }\n    return dummy.next;\n}\n```\n\nA. `cur = cur->next;`\nB. `cur->next = del->next;`\nC. `del->next = cur->next;`\nD. `cur->next = nullptr;`"
+    }
+  ],
+  "answers": {},
+  "grading": []
+}

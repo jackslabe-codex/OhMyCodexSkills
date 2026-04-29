@@ -1,0 +1,184 @@
+{
+  "exam": "gesp",
+  "subject": "cpp",
+  "levels": {
+    "5": {
+      "outline_source": "gesp_level5_standard.pdf",
+      "modules": [
+        {
+          "slug": "concept-number-theory",
+          "name": "初等数论",
+          "prerequisites": []
+        },
+        {
+          "slug": "concept-complexity",
+          "name": "算法复杂度估算方法",
+          "prerequisites": []
+        },
+        {
+          "slug": "concept-cpp-high-precision",
+          "name": "C++高精度运算",
+          "prerequisites": []
+        },
+        {
+          "slug": "concept-linked-list",
+          "name": "链表",
+          "prerequisites": []
+        },
+        {
+          "slug": "concept-binary-search",
+          "name": "二分算法",
+          "prerequisites": [
+            "concept-complexity"
+          ]
+        },
+        {
+          "slug": "concept-recursion",
+          "name": "递归算法",
+          "prerequisites": [
+            "concept-complexity"
+          ]
+        },
+        {
+          "slug": "concept-divide-and-conquer",
+          "name": "分治算法",
+          "prerequisites": [
+            "concept-recursion",
+            "concept-complexity"
+          ]
+        },
+        {
+          "slug": "concept-greedy",
+          "name": "贪心算法",
+          "prerequisites": [
+            "concept-complexity"
+          ]
+        }
+      ]
+    }
+  },
+  "papers": {
+    "2026-03": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2026_3.pdf",
+      "exam_page": "exam-2026-03",
+      "question_count": 27
+    },
+    "2025-12": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2025_12.pdf",
+      "exam_page": "exam-2025-12",
+      "question_count": 27
+    },
+    "2025-09": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2025_9.pdf",
+      "exam_page": "exam-2025-09",
+      "question_count": 27
+    },
+    "2023-12": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2023_12.pdf",
+      "exam_page": "exam-2023-12",
+      "question_count": 27
+    },
+    "2024-06": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2024_6.pdf",
+      "exam_page": "exam-2024-06",
+      "question_count": 27
+    },
+    "2024-09": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2024_9.pdf",
+      "exam_page": "exam-2024-09",
+      "question_count": 27
+    },
+    "2024-12": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2024_12.pdf",
+      "exam_page": "exam-2024-12",
+      "question_count": 27
+    },
+    "2025-03": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2025_3.pdf",
+      "exam_page": "exam-2025-03",
+      "question_count": 27
+    },
+    "2025-06": {
+      "level": 5,
+      "source_file": "Gesp_Cpp_2025_6.pdf",
+      "exam_page": "exam-2025-06",
+      "question_count": 27
+    }
+  },
+  "concepts": {
+    "concept-number-theory": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "初等数论",
+      "prerequisites": []
+    },
+    "concept-complexity": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "算法复杂度估算方法",
+      "prerequisites": []
+    },
+    "concept-cpp-high-precision": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "C++高精度运算",
+      "prerequisites": []
+    },
+    "concept-linked-list": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "链表",
+      "prerequisites": []
+    },
+    "concept-binary-search": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "二分算法",
+      "prerequisites": [
+        "concept-complexity"
+      ]
+    },
+    "concept-recursion": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "递归算法",
+      "prerequisites": [
+        "concept-complexity"
+      ]
+    },
+    "concept-divide-and-conquer": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "分治算法",
+      "prerequisites": [
+        "concept-recursion",
+        "concept-complexity"
+      ]
+    },
+    "concept-greedy": {
+      "exam": "gesp",
+      "level": 5,
+      "module": "贪心算法",
+      "prerequisites": [
+        "concept-complexity"
+      ]
+    }
+  },
+  "question_types": [
+    "single_choice",
+    "true_false",
+    "programming"
+  ],
+  "naming": {
+    "exam_page": "wiki/exams/exam-<year>-<month>.md",
+    "question_page": "wiki/questions/question-<year>-<month>-<no>.md"
+  }
+}

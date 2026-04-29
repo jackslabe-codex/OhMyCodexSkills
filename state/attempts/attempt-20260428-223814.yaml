@@ -1,0 +1,42 @@
+{
+  "attempt_id": "attempt-20260428-223814",
+  "created_at": "2026-04-28 22:38:14",
+  "filters": {
+    "concepts": "",
+    "paper": "2025-12",
+    "wrong_only": false,
+    "count": 3
+  },
+  "questions": [
+    {
+      "question_id": "question-2025-12-01",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "question_type": "single_choice",
+      "correct_answer": "C",
+      "stem_text": "对如下定义的循环单链表，横线处填写（ ）。\n\n```cpp\n// 循环单链表的结点\nstruct Node {\n    int data;        // 数据域\n    Node* next;      // 指针域\n    Node(int d) : data(d), next(nullptr) {}\n};\n\n// 创建一个只有一个结点的循环单链表\nNode* createList(int value) {\n    Node* head = new Node(value);\n    head->next = head;\n    return head;\n}\n\n// 在循环单链表尾部插入新结点\nvoid insertTail(Node* head, int value) {\n    Node* p = head;\n    while (p->next != head) {\n        p = p->next;\n    }\n    Node* node = new Node(value);\n    node->next = head;\n    p->next = node;\n}\n\n// 遍历并输出循环单链表\nvoid printList(Node* head) {\n    if (head == nullptr) return;\n    Node* p = head;\n    _______________________      //在此处填入代码\n    cout << endl;\n}\n```\n\nA.\n```cpp\nwhile (p != nullptr){\n    cout << p->data << \" \";\n    p = p->next;\n}\n```\n\nB.\n```cpp\nwhile (p->next != nullptr){\n    cout << p->data << \" \";\n    p = p->next;\n}\n```\n\nC.\n```cpp\ndo {\n    cout << p->data << \" \";\n    p = p->next;\n} while (p != head);\n```\n\nD.\n```cpp\nfor(; p; p=p->next){\n    cout << p->data << \" \";\n}\n```"
+    },
+    {
+      "question_id": "question-2025-12-02",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "question_type": "single_choice",
+      "correct_answer": "B",
+      "stem_text": "区块链技术是比特币的基础。在区块链中，每个区块指向前一个区块，构成链式列表，新区块只能接在链尾，不允许在中间插入或删除。下面代码实现插入区块添加函数，则横线处填写（ ）。\n\n```cpp\n//区块（节点）\nstruct Block {\n    int index;            // 区块编号（高度）\n    string data;          // 区块里保存的数据\n    Block* prev;          // 指向前一个区块\n    Block(int idx, const string& d, Block* p) : index(idx), data(d), prev(p) {}\n};\n\n// 区块链\nstruct Blockchain {\n    Block* tail;\n    // 初始化\n    void init() {\n        tail = new Block(0, \"Genesis Block\", nullptr);\n    }\n    // 插入新区块\n    void addBlock(const string& data) {\n        _______________________     //在此处填入代码\n    }\n    // 释放内存\n    void clear() {\n        Block* cur = tail;\n        while (cur != nullptr) {\n            Block* p = cur->prev;\n            delete cur;\n            cur = p;\n        }\n        tail = nullptr;\n    }\n};\n```\n\nA.\n```cpp\nBlock* newBlock = new Block(tail->index + 1, data, tail);\ntail = newBlock->prev;\n```\n\nB.\n```cpp\nBlock* newBlock = new Block(tail->index + 1, data, tail);\ntail = newBlock;\n```\n\nC.\n```cpp\nBlock* newBlock = new Block(tail->index + 1, data, tail->prev);\ntail = newBlock;\n```\n\nD.\n```cpp\nBlock* newBlock = new Block(tail->index + 1, data, tail->prev);\ntail = newBlock->prev;\n```"
+    },
+    {
+      "question_id": "question-2025-12-03",
+      "concept_refs": [
+        "concept-linked-list",
+        "concept-complexity"
+      ],
+      "question_type": "single_choice",
+      "correct_answer": "C",
+      "stem_text": "下面关于单链表和双链表的描述中，正确的是（ ）。\n\n```cpp\nstruct DNode {\n    int data;\n    DNode* prev;\n    DNode* next;\n};\n\n// 在双链表中删除指定节点\nvoid deleteNode(DNode* node) {\n    if (node->prev) {\n        node->prev->next = node->next;\n    }\n    if (node->next) {\n        node->next->prev = node->prev;\n    }\n    delete node;\n}\n\nstruct SNode {\n    int data;\n    SNode* next;\n};\n\n// 在单链表中删除指定节点\nvoid deleteSNode(SNode* head, SNode* node) {\n    SNode* prev = head;\n    while (prev->next != node) {\n        prev = prev->next;\n    }\n    prev->next = node->next;\n    delete node;\n}\n```\n\nA. 双链表删除指定节点是O(1)，单链表是O(1)\nB. 双链表删除指定节点是O(n)，单链表是O(1)\nC. 双链表删除指定节点是O(1)，单链表是O(n)\nD. 双链表删除指定节点是O(n)，单链表是O(n)"
+    }
+  ],
+  "answers": {},
+  "grading": []
+}

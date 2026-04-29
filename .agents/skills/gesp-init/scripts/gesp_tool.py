@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
 import random
@@ -9,10 +10,12 @@ import re
 import shutil
 import subprocess
 import tempfile
+import urllib.error
+import urllib.request
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Any, Dict, List
 
 from pypdf import PdfReader
 
@@ -26,6 +29,7 @@ WIKI = ROOT / "wiki"
 STATE = ROOT / "state"
 DOCLING_BIN = Path("/Users/mao3/.local/opt/docling/bin/docling")
 PDFTOTEXT_BIN = Path("/opt/homebrew/bin/pdftotext")
+PDFTOPPM_BIN = Path("/opt/homebrew/bin/pdftoppm")
 
 DIRS = [
     RAW_SYL,
@@ -163,6 +167,12 @@ def pdftotext_bin() -> str | None:
     if PDFTOTEXT_BIN.exists():
         return str(PDFTOTEXT_BIN)
     return shutil.which("pdftotext")
+
+
+def pdftoppm_bin() -> str | None:
+    if PDFTOPPM_BIN.exists():
+        return str(PDFTOPPM_BIN)
+    return shutil.which("pdftoppm")
 
 
 def normalize_layout_text(text: str) -> str:
@@ -721,7 +731,18 @@ def map_concepts(stem: str) -> List[str]:
     return refs
 
 
-def question_page_content(meta: Dict[str, int | str], qno: int, qtype: str, stem: str, answer: str, concept_refs: List[str], extraction_status: str) -> str:
+def question_page_content(
+    meta: Dict[str, int | str],
+    qno: int,
+    qtype: str,
+    stem: str,
+    answer: str,
+    concept_refs: List[str],
+    extraction_status: str,
+    analysis: str = "",
+    difficulty: str = "unknown",
+    source: str = "",
+) -> str:
     qid = f"question-{meta['year']:04d}-{meta['month']:02d}-{qno:02d}"
     links = [f"- [[exam-{meta['year']:04d}-{meta['month']:02d}]]"] + [f"- [[{ref}]]" for ref in concept_refs]
     return f"""---
@@ -735,10 +756,11 @@ level: {meta['level']}
 subject: cpp
 question_type: {qtype}
 answer: {json.dumps(answer, ensure_ascii=False)}
-analysis: ""
+analysis: {json.dumps(analysis, ensure_ascii=False)}
 concept_refs: {json.dumps(concept_refs, ensure_ascii=False)}
-difficulty: "unknown"
+difficulty: {json.dumps(difficulty, ensure_ascii=False)}
 extraction_status: {extraction_status}
+source: {json.dumps(source, ensure_ascii=False)}
 ---
 
 ## Stem
@@ -751,12 +773,607 @@ extraction_status: {extraction_status}
 
 ## Analysis
 
-首版未生成解析。
+{analysis or "首版未生成解析。"}
 
 ## Links
 
 {chr(10).join(links)}
 """
+
+
+def pdf_page_texts(path: Path) -> List[str]:
+    binary = pdftotext_bin()
+    reader = PdfReader(str(path))
+    pages: List[str] = []
+    for page_no in range(1, len(reader.pages) + 1):
+        if binary:
+            result = subprocess.run(
+                [binary, "-layout", "-f", str(page_no), "-l", str(page_no), str(path), "-"],
+                capture_output=True,
+                text=True,
+            )
+            if result.returncode == 0:
+                pages.append(normalize_layout_text(result.stdout))
+                continue
+        page = reader.pages[page_no - 1]
+        pages.append(normalize(page.extract_text() or ""))
+    return pages
+
+
+def render_pdf_pages(path: Path, output_dir: Path, dpi: int = 120) -> List[Path]:
+    binary = pdftoppm_bin()
+    if not binary:
+        raise RuntimeError("pdftoppm is required to render PDF pages for GLM visual extraction")
+    prefix = output_dir / "page"
+    result = subprocess.run(
+        [binary, "-png", "-r", str(dpi), str(path), str(prefix)],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"pdftoppm failed: {result.stderr.strip() or result.stdout.strip()}")
+    images = sorted(output_dir.glob("page-*.png"))
+    if not images:
+        raise RuntimeError("pdftoppm did not produce any page images")
+    return images
+
+
+def render_pdf_page(path: Path, output_dir: Path, page_no: int, dpi: int = 200) -> Path:
+    binary = pdftoppm_bin()
+    if not binary:
+        raise RuntimeError("pdftoppm is required to render PDF pages")
+    prefix = output_dir / "page"
+    result = subprocess.run(
+        [binary, "-png", "-r", str(dpi), "-f", str(page_no), "-l", str(page_no), str(path), str(prefix)],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"pdftoppm failed: {result.stderr.strip() or result.stdout.strip()}")
+    images = sorted(output_dir.glob("page-*.png"))
+    if not images:
+        raise RuntimeError(f"pdftoppm did not produce page {page_no}")
+    return images[0]
+
+
+def image_data_url(path: Path) -> str:
+    data = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:image/png;base64,{data}"
+
+
+def concept_candidates(blueprint: Dict[str, Any]) -> List[Dict[str, Any]]:
+    concepts = blueprint.get("concepts", {})
+    items = []
+    for slug in sorted(concepts):
+        entry = concepts[slug]
+        items.append(
+            {
+                "slug": slug,
+                "module": entry.get("module", ""),
+                "prerequisites": entry.get("prerequisites", []),
+            }
+        )
+    if items:
+        return items
+    return [
+        {"slug": item["slug"], "module": item["module"], "prerequisites": item["prerequisites"]}
+        for item in LEVEL5_CONCEPTS
+    ]
+
+
+def build_glm_paper_prompt(meta: Dict[str, int | str], page_texts: List[str], concepts: List[Dict[str, Any]]) -> str:
+    text_pages = "\n\n".join(
+        f"===== PAGE {idx} TEXT LAYER =====\n{text}" for idx, text in enumerate(page_texts, start=1)
+    )
+    schema = {
+        "paper": {"year": meta["year"], "month": meta["month"], "level": meta["level"]},
+        "questions": [
+            {
+                "no": 1,
+                "question_type": "single_choice",
+                "answer": "A",
+                "analysis": "",
+                "difficulty": "unknown",
+                "concept_refs": ["concept-linked-list"],
+                "extraction_status": "ok",
+                "stem_markdown": "题面 Markdown",
+            }
+        ],
+    }
+    return f"""你是 GESP C++ 五级真题结构化助手。请结合后续按顺序提供的 PDF 页面截图和下面的文本层粗抽取结果，重建一份适合题库使用的严格 JSON。
+
+必须遵守：
+1. 只输出 JSON 对象，不要输出 Markdown code fence，不要解释。
+2. 输出 schema 必须与示例一致：{json.dumps(schema, ensure_ascii=False)}
+3. paper.year={meta['year']}，paper.month={meta['month']}，paper.level={meta['level']}。
+4. questions 必须包含 27 题：单选题全局编号 1-15，判断题全局编号 16-25，编程题全局编号 26-27。
+5. question_type 只能是 single_choice、true_false、programming。
+6. 单选题 answer 使用答案表中的 A/B/C/D；判断题如果答案表没有可靠答案，answer 置空并标记 extraction_status 为 needs_review；编程题 answer 置空。
+7. stem_markdown 要按题目逻辑重建，不要照搬 PDF 物理版面；去掉页眉、页脚、页码和 PDF 行号。
+8. 代码必须用 fenced block，C++ 使用 ```cpp，样例使用 ```text。
+9. 编程题必须包含题目描述、输入格式、输出格式、样例、样例解释、数据范围、参考程序；样例和参考程序必须去掉 PDF 行号。
+10. 公式、变量、复杂度、上下标、样例内容以页面截图为准补全；文本层缺字或乱序时以截图为准。
+11. concept_refs 只能从给定候选 concept slug 中选择；不确定可留空，并把 extraction_status 设为 needs_review。
+12. difficulty 没有可靠依据时填 unknown；analysis 没有解析时填空字符串。
+
+concept 候选：
+{json.dumps(concepts, ensure_ascii=False, indent=2)}
+
+文本层粗抽取：
+{text_pages}
+"""
+
+
+def build_glm_question_group_prompt(
+    meta: Dict[str, int | str],
+    page_texts: List[tuple[int, str]],
+    concepts: List[Dict[str, Any]],
+    qtype: str,
+    expected_nos: List[int],
+) -> str:
+    text_pages = "\n\n".join(f"===== PAGE {idx} TEXT LAYER =====\n{text}" for idx, text in page_texts)
+    return f"""你是 GESP C++ 五级真题结构化助手。请只处理本次指定的题目编号，结合前面页面截图和下面文本层粗抽取，输出严格 JSON。
+
+必须只输出 JSON 对象，不要 Markdown code fence，不要解释。
+输出格式：
+{{
+  "questions": [
+    {{
+      "no": {expected_nos[0]},
+      "question_type": "{qtype}",
+      "answer": "",
+      "analysis": "",
+      "difficulty": "unknown",
+      "concept_refs": [],
+      "extraction_status": "ok",
+      "stem_markdown": "题面 Markdown"
+    }}
+  ]
+}}
+
+硬性规则：
+1. 只输出这些全局题号：{expected_nos}。
+2. question_type 必须全部是 {qtype}。
+3. 单选题全局编号为 1-15；判断题全局编号为 16-25；编程题全局编号为 26-27。
+4. stem_markdown 要按题目逻辑重建，去掉页眉、页脚、页码和 PDF 行号。
+5. 代码必须用 fenced block，C++ 使用 ```cpp，样例使用 ```text。
+6. 编程题必须包含题目描述、输入格式、输出格式、样例、样例解释、数据范围、参考程序；样例和参考程序必须去掉 PDF 行号。
+7. 公式、变量、复杂度、上下标、样例内容以页面截图为准补全；文本层缺字或乱序时以截图为准。
+8. concept_refs 只能从给定候选 concept slug 中选择；不确定可留空，并把 extraction_status 设为 needs_review。
+9. difficulty 没有可靠依据时填 unknown；analysis 没有解析时填空字符串。
+
+paper 元信息：year={meta['year']} month={meta['month']} level={meta['level']}
+
+concept 候选：
+{json.dumps(concepts, ensure_ascii=False, indent=2)}
+
+文本层粗抽取：
+{text_pages}
+"""
+
+
+def glm_chat_completion(content: List[Dict[str, Any]]) -> str:
+    api_key = os.environ.get("GLM_API_KEY", "").strip()
+    if not api_key:
+        raise RuntimeError("GLM_API_KEY is required for GLM-5V-Turbo paper ingestion")
+    base = os.environ.get("GLM_API_BASE", "https://open.bigmodel.cn/api/paas/v4").rstrip("/")
+    model = os.environ.get("GLM_VISION_MODEL", "glm-5v-turbo")
+    thinking = os.environ.get("GLM_THINKING", "enabled")
+    timeout = int(os.environ.get("GLM_TIMEOUT_SECONDS", "300"))
+    payload: Dict[str, Any] = {
+        "model": model,
+        "messages": [{"role": "user", "content": content}],
+        "thinking": {"type": thinking},
+    }
+    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    request = urllib.request.Request(
+        f"{base}/chat/completions",
+        data=data,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            raw = response.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        body = exc.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"GLM API HTTP {exc.code}: {body}") from exc
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"GLM API request failed: {exc.reason}") from exc
+
+    payload = json.loads(raw)
+    try:
+        return payload["choices"][0]["message"]["content"]
+    except (KeyError, IndexError, TypeError) as exc:
+        raise RuntimeError(f"unexpected GLM API response: {raw[:1000]}") from exc
+
+
+def extract_json_object(text: str) -> Dict[str, Any]:
+    cleaned = text.strip()
+    if cleaned.startswith("```"):
+        fence = re.fullmatch(r"```(?:json)?\s*(.*?)\s*```", cleaned, re.S)
+        if fence:
+            cleaned = fence.group(1).strip()
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
+    if start == -1 or end == -1 or end < start:
+        preview = cleaned[:800].replace("\n", "\\n")
+        raise RuntimeError(f"GLM response did not contain a JSON object: {preview}")
+    return json.loads(cleaned[start : end + 1])
+
+
+def strip_markdown_code_line_numbers(markdown: str) -> str:
+    lines = []
+    in_fence = False
+    for raw in markdown.splitlines():
+        line = raw.rstrip()
+        if line.strip().startswith("```"):
+            in_fence = not in_fence
+            lines.append(line)
+            continue
+        if in_fence:
+            if re.fullmatch(r"\s*\d+\s*", line):
+                continue
+            match = re.match(r"^(\s*)\d+\s{2,}(.*)$", line)
+            if match:
+                line = match.group(1) + match.group(2)
+        lines.append(line)
+    return "\n".join(lines).strip()
+
+
+def numbered_block_after_heading(text: str, heading_pattern: str) -> str:
+    match = re.search(heading_pattern + r"\s*\n(?P<body>(?:\s*\d+\s+\S.*(?:\n|$))+)", text)
+    if not match:
+        return ""
+    values = []
+    for raw in match.group("body").splitlines():
+        line_match = re.match(r"^\s*\d+\s+(.*\S)\s*$", raw)
+        if line_match:
+            values.append(line_match.group(1).strip())
+    return "\n".join(values).strip()
+
+
+def repair_programming_samples(stem: str, qno: int, layout_text: str) -> str:
+    if qno not in {26, 27}:
+        return stem
+    local_no = qno - 25
+    input_sample = numbered_block_after_heading(layout_text, rf"3\.{local_no}\.4\.1\s+输入样例")
+    output = numbered_block_after_heading(layout_text, rf"3\.{local_no}\.4\.2\s+输出样例")
+
+    def replace_sample(markdown: str, label: str, value: str) -> str:
+        if not value:
+            return markdown
+        pattern = rf"(####[^\n]*{label}[^\n]*\n\s*```text\n).*?(\n```)"
+        return re.sub(pattern, rf"\g<1>{value}\2", markdown, flags=re.S)
+
+    stem = replace_sample(stem, "输入样例", input_sample)
+    stem = replace_sample(stem, "输出样例", output)
+    return stem
+
+
+def normalize_true_false_answer(value: Any) -> str:
+    text = str(value).strip().lower()
+    if text in {"true", "t", "yes", "y", "1", "√", "✓", "对", "正确"}:
+        return "true"
+    if text in {"false", "f", "no", "n", "0", "×", "x", "错", "错误"}:
+        return "false"
+    return ""
+
+
+def classify_red_judge_mark(width: int, height: int) -> str:
+    if height >= 20 and width >= 16:
+        return "true"
+    if height <= 18 and width <= 18:
+        return "false"
+    return ""
+
+
+def extract_true_false_answer_key_from_image(image_path: Path) -> List[str]:
+    try:
+        from PIL import Image
+    except ImportError:
+        return []
+    img = Image.open(image_path).convert("RGB")
+    width, height = img.size
+    pix = img.load()
+    red_pixels: set[tuple[int, int]] = set()
+    for y in range(height):
+        for x in range(width):
+            r, g, b = pix[x, y]
+            if r > 170 and g < 100 and b < 100:
+                red_pixels.add((x, y))
+
+    seen: set[tuple[int, int]] = set()
+    components = []
+    for pixel in list(red_pixels):
+        if pixel in seen:
+            continue
+        stack = [pixel]
+        seen.add(pixel)
+        xs = []
+        ys = []
+        for x, y in stack:
+            xs.append(x)
+            ys.append(y)
+            for nx in (x - 1, x, x + 1):
+                for ny in (y - 1, y, y + 1):
+                    if (nx, ny) in red_pixels and (nx, ny) not in seen:
+                        seen.add((nx, ny))
+                        stack.append((nx, ny))
+        if len(xs) < 20:
+            continue
+        x1, y1, x2, y2 = min(xs), min(ys), max(xs), max(ys)
+        box_w = x2 - x1 + 1
+        box_h = y2 - y1 + 1
+        answer = classify_red_judge_mark(box_w, box_h)
+        if answer:
+            components.append({"x": (x1 + x2) / 2, "y": (y1 + y2) / 2, "answer": answer})
+
+    best_row: List[Dict[str, Any]] = []
+    for component in components:
+        row = [item for item in components if abs(item["y"] - component["y"]) <= 18]
+        if len(row) > len(best_row):
+            best_row = row
+    best_row = sorted(best_row, key=lambda item: item["x"])
+    if len(best_row) < 10:
+        return []
+    return [item["answer"] for item in best_row[:10]]
+
+
+def extract_true_false_answer_key(path: Path, page_texts: List[str] | None = None) -> List[str]:
+    if page_texts is None:
+        page_texts = pdf_page_texts(path)
+    judge_page = first_page_containing(page_texts, r"判断题")
+    if judge_page is None:
+        return []
+    with tempfile.TemporaryDirectory(prefix="gesp-judge-key-") as tmpdir:
+        image = render_pdf_page(path, Path(tmpdir), judge_page)
+        normalized = extract_true_false_answer_key_from_image(image)
+    if len(normalized) != 10 or any(not item for item in normalized):
+        raise RuntimeError(f"could not extract true/false answer key from {path.name}: {normalized}")
+    return normalized
+
+
+def normalize_question_no(question: Dict[str, Any]) -> int:
+    raw_no = int(question.get("no", 0))
+    qtype = question.get("question_type", "")
+    if qtype == "true_false" and 1 <= raw_no <= 10:
+        return 15 + raw_no
+    if qtype == "programming" and 1 <= raw_no <= 2:
+        return 25 + raw_no
+    return raw_no
+
+
+def validate_glm_paper_payload(payload: Dict[str, Any], meta: Dict[str, int | str], known_concepts: set[str]) -> List[Dict[str, Any]]:
+    paper = payload.get("paper", {})
+    if int(paper.get("year", 0)) != meta["year"] or int(paper.get("month", 0)) != meta["month"]:
+        raise RuntimeError("GLM paper metadata does not match the source PDF")
+    questions = payload.get("questions")
+    if not isinstance(questions, list):
+        raise RuntimeError("GLM response missing questions list")
+
+    normalized: List[Dict[str, Any]] = []
+    seen: set[int] = set()
+    expected_types = {
+        **{no: "single_choice" for no in range(1, 16)},
+        **{no: "true_false" for no in range(16, 26)},
+        **{no: "programming" for no in range(26, 28)},
+    }
+    for raw in questions:
+        if not isinstance(raw, dict):
+            raise RuntimeError("GLM question item is not an object")
+        qtype = str(raw.get("question_type", "")).strip()
+        qno = normalize_question_no(raw)
+        if qno not in expected_types:
+            raise RuntimeError(f"unexpected question no: {qno}")
+        if expected_types[qno] != qtype:
+            raise RuntimeError(f"question {qno} has type {qtype}, expected {expected_types[qno]}")
+        if qno in seen:
+            raise RuntimeError(f"duplicate question no: {qno}")
+        seen.add(qno)
+
+        stem = str(raw.get("stem_markdown", "")).strip()
+        if not stem:
+            raise RuntimeError(f"question {qno} has empty stem_markdown")
+        refs = [ref for ref in raw.get("concept_refs", []) if isinstance(ref, str) and ref in known_concepts]
+        status = str(raw.get("extraction_status", "ok") or "ok").strip()
+        if len(refs) != len(raw.get("concept_refs", [])):
+            status = "needs_review"
+        if status not in {"ok", "needs_review"}:
+            status = "needs_review"
+        answer = str(raw.get("answer", "") or "").strip()
+        if qtype == "true_false":
+            answer = ""
+            status = "needs_review"
+
+        normalized.append(
+            {
+                "no": qno,
+                "question_type": qtype,
+                "answer": answer,
+                "analysis": str(raw.get("analysis", "") or "").strip(),
+                "difficulty": str(raw.get("difficulty", "unknown") or "unknown").strip(),
+                "concept_refs": refs,
+                "extraction_status": status,
+                "stem_markdown": strip_markdown_code_line_numbers(stem),
+            }
+        )
+    missing = sorted(set(expected_types) - seen)
+    if missing:
+        raise RuntimeError(f"GLM response missing questions: {missing}")
+    return sorted(normalized, key=lambda item: item["no"])
+
+
+def validate_glm_question_group(
+    payload: Dict[str, Any],
+    expected_nos: List[int],
+    qtype: str,
+    known_concepts: set[str],
+) -> List[Dict[str, Any]]:
+    questions = payload.get("questions")
+    if not isinstance(questions, list):
+        raise RuntimeError("GLM group response missing questions list")
+    expected = set(expected_nos)
+    normalized: List[Dict[str, Any]] = []
+    seen: set[int] = set()
+    for raw in questions:
+        if not isinstance(raw, dict):
+            raise RuntimeError("GLM group question item is not an object")
+        qno = normalize_question_no(raw)
+        if qno not in expected:
+            raise RuntimeError(f"unexpected question no in group: {qno}; expected {expected_nos}")
+        if qno in seen:
+            raise RuntimeError(f"duplicate question no in group: {qno}")
+        seen.add(qno)
+        actual_type = str(raw.get("question_type", "")).strip()
+        if actual_type != qtype:
+            raise RuntimeError(f"question {qno} has type {actual_type}, expected {qtype}")
+        stem = str(raw.get("stem_markdown", "")).strip()
+        if not stem:
+            raise RuntimeError(f"question {qno} has empty stem_markdown")
+        raw_refs = raw.get("concept_refs", [])
+        refs = [ref for ref in raw_refs if isinstance(ref, str) and ref in known_concepts]
+        status = str(raw.get("extraction_status", "ok") or "ok").strip()
+        if len(refs) != len(raw_refs):
+            status = "needs_review"
+        if status not in {"ok", "needs_review"}:
+            status = "needs_review"
+        answer = str(raw.get("answer", "") or "").strip()
+        if qtype == "true_false":
+            answer = ""
+            status = "needs_review"
+        normalized.append(
+            {
+                "no": qno,
+                "question_type": qtype,
+                "answer": answer,
+                "analysis": str(raw.get("analysis", "") or "").strip(),
+                "difficulty": str(raw.get("difficulty", "unknown") or "unknown").strip(),
+                "concept_refs": refs,
+                "extraction_status": status,
+                "stem_markdown": strip_markdown_code_line_numbers(stem),
+            }
+        )
+    missing = sorted(expected - seen)
+    if missing:
+        raise RuntimeError(f"GLM group response missing questions: {missing}")
+    return sorted(normalized, key=lambda item: item["no"])
+
+
+def extract_question_group_with_glm(
+    images: List[Path],
+    page_texts: List[str],
+    concepts: List[Dict[str, Any]],
+    known_concepts: set[str],
+    meta: Dict[str, int | str],
+    page_numbers: List[int],
+    qtype: str,
+    expected_nos: List[int],
+) -> List[Dict[str, Any]]:
+    content: List[Dict[str, Any]] = []
+    for page_no in page_numbers:
+        content.append({"type": "image_url", "image_url": {"url": image_data_url(images[page_no - 1])}})
+    prompt_pages = [(page_no, page_texts[page_no - 1]) for page_no in page_numbers]
+    content.append({"type": "text", "text": build_glm_question_group_prompt(meta, prompt_pages, concepts, qtype, expected_nos)})
+    response_text = glm_chat_completion(content)
+    payload = extract_json_object(response_text)
+    return validate_glm_question_group(payload, expected_nos, qtype, known_concepts)
+
+
+def question_numbers_on_page(text: str) -> List[int]:
+    return [int(value) for value in re.findall(r"第\s*(\d+)\s*题", text)]
+
+
+def first_page_containing(page_texts: List[str], pattern: str, start: int = 1) -> int | None:
+    regex = re.compile(pattern)
+    for idx, text in enumerate(page_texts, start=1):
+        if idx < start:
+            continue
+        if regex.search(text):
+            return idx
+    return None
+
+
+def pages_for_expected_questions(page_texts: List[str], qtype: str, expected_nos: List[int]) -> List[int]:
+    expected = set(expected_nos)
+    first_judge = first_page_containing(page_texts, r"判断题")
+    first_programming = first_page_containing(page_texts, r"编程题")
+    pages: List[int] = []
+    for idx, text in enumerate(page_texts, start=1):
+        if qtype == "single_choice":
+            if first_judge and idx >= first_judge:
+                continue
+            local_numbers = question_numbers_on_page(text)
+        elif qtype == "true_false":
+            if first_judge and idx < first_judge:
+                continue
+            if first_programming and idx > first_programming:
+                continue
+            local_numbers = question_numbers_on_page(text)
+            local_numbers = [number + 15 for number in local_numbers]
+        else:
+            raise ValueError(f"unsupported qtype for page inference: {qtype}")
+        if expected.intersection(local_numbers):
+            pages.append(idx)
+    return pages
+
+
+def programming_pages(page_texts: List[str], local_no: int) -> List[int]:
+    start = first_page_containing(page_texts, rf"3\.{local_no}\s+编程题\s+{local_no}")
+    if start is None:
+        raise RuntimeError(f"could not locate programming question {local_no}")
+    next_start = first_page_containing(page_texts, rf"3\.{local_no + 1}\s+编程题\s+{local_no + 1}", start + 1)
+    end = (next_start - 1) if next_start else len(page_texts)
+    return list(range(start, end + 1))
+
+
+def infer_glm_question_groups(page_texts: List[str]) -> List[tuple[List[int], str, List[int]]]:
+    groups = [
+        (pages_for_expected_questions(page_texts, "single_choice", list(range(1, 9))), "single_choice", list(range(1, 9))),
+        (pages_for_expected_questions(page_texts, "single_choice", list(range(9, 16))), "single_choice", list(range(9, 16))),
+        (pages_for_expected_questions(page_texts, "true_false", list(range(16, 26))), "true_false", list(range(16, 26))),
+        (programming_pages(page_texts, 1), "programming", [26]),
+        (programming_pages(page_texts, 2), "programming", [27]),
+    ]
+    for page_numbers, qtype, expected_nos in groups:
+        if not page_numbers:
+            raise RuntimeError(f"could not infer pages for {qtype} questions {expected_nos}")
+    return groups
+
+
+def extract_paper_with_glm(path: Path, meta: Dict[str, int | str], blueprint: Dict[str, Any]) -> List[Dict[str, Any]]:
+    if not os.environ.get("GLM_API_KEY", "").strip():
+        raise RuntimeError("GLM_API_KEY is required for GLM-5V-Turbo paper ingestion")
+    page_texts = pdf_page_texts(path)
+    concepts = concept_candidates(blueprint)
+    known_concepts = {item["slug"] for item in concepts}
+    with tempfile.TemporaryDirectory(prefix="gesp-glm-pages-") as tmpdir:
+        images = render_pdf_pages(path, Path(tmpdir))
+        if len(images) != len(page_texts):
+            raise RuntimeError(f"rendered page count {len(images)} does not match text page count {len(page_texts)}")
+        groups = infer_glm_question_groups(page_texts)
+        questions: List[Dict[str, Any]] = []
+        for page_numbers, qtype, expected_nos in groups:
+            questions.extend(
+                extract_question_group_with_glm(
+                    images,
+                    page_texts,
+                    concepts,
+                    known_concepts,
+                    meta,
+                    page_numbers,
+                    qtype,
+                    expected_nos,
+                )
+            )
+    return validate_glm_paper_payload(
+        {"paper": {"year": meta["year"], "month": meta["month"], "level": meta["level"]}, "questions": questions},
+        meta,
+        known_concepts,
+    )
 
 
 def update_concept_question_refs(concept_slug: str, question_page: str) -> None:
@@ -780,98 +1397,45 @@ def ingest_paper(path_str: str | None) -> None:
         return
     blueprint = load_jsonish(STATE / "catalog" / "blueprint.yaml", {})
     for path in paths:
-        text, extraction_engine = paper_text(path)
-        backup_text = pdf_text(path) if extraction_engine == "pdftotext_layout" else ""
+        text = pdf_text_via_pdftotext_layout(path) or pdf_text(path)
         meta = exam_meta(path, text)
+        questions = extract_paper_with_glm(path, meta, blueprint)
         key = answer_key(text)
-        single = section(text, "单选题", "判断题")
-        judge = section(text, "判断题", "编程题")
-        programming = section(text, "编程题", None)
-        backup_single = section(backup_text, "单选题", "判断题") if backup_text else ""
-        backup_judge = section(backup_text, "判断题", "编程题") if backup_text else ""
-        backup_programming = section(backup_text, "编程题", None) if backup_text else ""
+        if len(key) == 15:
+            for question in questions:
+                if question["question_type"] == "single_choice" and 1 <= question["no"] <= 15:
+                    question["answer"] = key[question["no"] - 1]
+        judge_key = extract_true_false_answer_key(path, pdf_page_texts(path))
+        if len(judge_key) == 10:
+            for question in questions:
+                if question["question_type"] == "true_false" and 16 <= question["no"] <= 25:
+                    question["answer"] = judge_key[question["no"] - 16]
+                    if question["extraction_status"] == "needs_review":
+                        question["extraction_status"] = "ok"
+        for question in questions:
+            if question["question_type"] == "programming":
+                question["stem_markdown"] = repair_programming_samples(question["stem_markdown"], question["no"], text)
         question_pages = []
-        single_blocks = parse_question_blocks(single)
-        backup_single_blocks = parse_question_blocks(backup_single) if backup_single else []
-        for idx, match in enumerate(single_blocks):
-            local_no = int(match.group(1))
-            start = match.start()
-            end = single_blocks[idx + 1].start() if idx + 1 < len(single_blocks) else len(single)
-            layout_block = single[start:end]
-            if extraction_engine == "pdftotext_layout" and has_layout_code_lines(layout_block):
-                if idx < len(backup_single_blocks):
-                    backup_start = backup_single_blocks[idx].start()
-                    backup_end = backup_single_blocks[idx + 1].start() if idx + 1 < len(backup_single_blocks) else len(backup_single)
-                    stem = rebuild_hybrid_code_question(layout_block, backup_single[backup_start:backup_end])
-                else:
-                    stem = format_layout_question_block(layout_block)
-            elif extraction_engine == "pdftotext_layout" and idx < len(backup_single_blocks):
-                backup_start = backup_single_blocks[idx].start()
-                backup_end = backup_single_blocks[idx + 1].start() if idx + 1 < len(backup_single_blocks) else len(backup_single)
-                stem = normalize(backup_single[backup_start:backup_end])
-            elif extraction_engine == "docling":
-                stem = cleanup_question_markdown(layout_block)
-            else:
-                stem = normalize(layout_block)
-            qno = local_no
+        for question in questions:
+            qno = question["no"]
             qpage = f"question-{meta['year']:04d}-{meta['month']:02d}-{qno:02d}"
-            refs = map_concepts(stem)
-            answer = key[local_no - 1] if local_no - 1 < len(key) else ""
-            if extraction_engine in {"docling", "pdftotext_layout"}:
-                status = single_choice_extraction_status(stem, answer)
-            else:
-                status = "ok" if answer else "needs_review"
-            write_text(WIKI / "questions" / f"{qpage}.md", question_page_content(meta, qno, "single_choice", stem, answer, refs, status))
+            write_text(
+                WIKI / "questions" / f"{qpage}.md",
+                question_page_content(
+                    meta,
+                    qno,
+                    question["question_type"],
+                    question["stem_markdown"],
+                    question["answer"],
+                    question["concept_refs"],
+                    question["extraction_status"],
+                    question["analysis"],
+                    question["difficulty"],
+                    path.name,
+                ),
+            )
             question_pages.append(qpage)
-            for ref in refs:
-                update_concept_question_refs(ref, qpage)
-        judge_blocks = parse_question_blocks(judge)
-        backup_judge_blocks = parse_question_blocks(backup_judge) if backup_judge else []
-        for idx, match in enumerate(judge_blocks):
-            local_no = int(match.group(1))
-            start = match.start()
-            end = judge_blocks[idx + 1].start() if idx + 1 < len(judge_blocks) else len(judge)
-            layout_block = judge[start:end]
-            if extraction_engine == "pdftotext_layout" and has_layout_code_lines(layout_block):
-                stem = format_layout_question_block(layout_block)
-            elif extraction_engine == "pdftotext_layout" and idx < len(backup_judge_blocks):
-                backup_start = backup_judge_blocks[idx].start()
-                backup_end = backup_judge_blocks[idx + 1].start() if idx + 1 < len(backup_judge_blocks) else len(backup_judge)
-                stem = normalize(backup_judge[backup_start:backup_end])
-            elif extraction_engine == "docling":
-                stem = cleanup_question_markdown(layout_block)
-            else:
-                stem = normalize(layout_block)
-            qno = 15 + local_no
-            qpage = f"question-{meta['year']:04d}-{meta['month']:02d}-{qno:02d}"
-            refs = map_concepts(stem)
-            write_text(WIKI / "questions" / f"{qpage}.md", question_page_content(meta, qno, "true_false", stem, "", refs, "needs_review"))
-            question_pages.append(qpage)
-            for ref in refs:
-                update_concept_question_refs(ref, qpage)
-        prog_matches = list(re.finditer(r"3\.(\d+)\s*编程题\s*(\d+)", programming))
-        backup_prog_matches = list(re.finditer(r"3\.(\d+)\s*编程题\s*(\d+)", backup_programming)) if backup_programming else []
-        for idx, match in enumerate(prog_matches):
-            local_no = int(match.group(2))
-            start = match.start()
-            end = prog_matches[idx + 1].start() if idx + 1 < len(prog_matches) else len(programming)
-            layout_block = programming[start:end]
-            if extraction_engine == "pdftotext_layout" and has_layout_code_lines(layout_block):
-                stem = format_layout_question_block(layout_block)
-            elif extraction_engine == "pdftotext_layout" and idx < len(backup_prog_matches):
-                backup_start = backup_prog_matches[idx].start()
-                backup_end = backup_prog_matches[idx + 1].start() if idx + 1 < len(backup_prog_matches) else len(backup_programming)
-                stem = normalize(backup_programming[backup_start:backup_end])
-            elif extraction_engine == "docling":
-                stem = cleanup_question_markdown(layout_block)
-            else:
-                stem = normalize(layout_block)
-            qno = 25 + local_no
-            qpage = f"question-{meta['year']:04d}-{meta['month']:02d}-{qno:02d}"
-            refs = map_concepts(stem)
-            write_text(WIKI / "questions" / f"{qpage}.md", question_page_content(meta, qno, "programming", stem, "", refs, "needs_review"))
-            question_pages.append(qpage)
-            for ref in refs:
+            for ref in question["concept_refs"]:
                 update_concept_question_refs(ref, qpage)
         exam_page = meta["exam_page"]
         write_text(
@@ -908,7 +1472,7 @@ GESP C++ 五级 {meta['year']} 年 {meta['month']:02d} 月真题，共 {len(ques
             update_index("Questions", page, f"{page} | {meta['year']}-{meta['month']:02d}")
         append_log("gesp-ingest-paper", f"摄入试卷 {path.name}", f"[[{exam_page}]]")
         archive_source(path, "paper")
-        print(json.dumps({"status": "ok", "source_file": path.name, "engine": extraction_engine, "exam_page": exam_page}, ensure_ascii=False))
+        print(json.dumps({"status": "ok", "source_file": path.name, "engine": os.environ.get("GLM_VISION_MODEL", "glm-5v-turbo"), "exam_page": exam_page}, ensure_ascii=False))
     dump_jsonish(STATE / "catalog" / "blueprint.yaml", blueprint)
 
 

@@ -5,9 +5,7 @@
   ],
   "active_groups": [
     "core",
-    "wiki",
-    "gesp",
-    "memory"
+    "gesp"
   ],
   "group_rules": {
     "wiki": {
