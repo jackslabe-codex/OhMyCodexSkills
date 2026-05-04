@@ -1,0 +1,278 @@
+{
+  "paper_id": "2026-03",
+  "classifications": [
+    {
+      "question_id": "question-2026-03-01",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "primary_concept": "concept-linked-list",
+      "fallback_parent_used": true,
+      "confidence": 0.9,
+      "reason": "题目涉及单链表、双链表和循环链表的基本概念，无法细分到单一子级，故使用父级概念。"
+    },
+    {
+      "question_id": "question-2026-03-02",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "具体考察双向循环链表的插入操作，属于链表高级知识。"
+    },
+    {
+      "question_id": "question-2026-03-03",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目涉及在单链表中删除特定值的节点，属于链表插入与删除操作。"
+    },
+    {
+      "question_id": "question-2026-03-04",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察辗转相除法（欧几里得算法），属于最大公约数概念。"
+    },
+    {
+      "question_id": "question-2026-03-05",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察欧拉筛（线性筛）的实现，属于素数筛法。"
+    },
+    {
+      "question_id": "question-2026-03-06",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察埃氏筛的优化原理，属于素数筛法。"
+    },
+    {
+      "question_id": "question-2026-03-07",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "代码实现求最大距离问题（最大化最小值），属于二分答案。"
+    },
+    {
+      "question_id": "question-2026-03-08",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察lower_bound二分查找的实现。"
+    },
+    {
+      "question_id": "question-2026-03-09",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目涉及递归调用、栈溢出和尾递归等基本概念。"
+    },
+    {
+      "question_id": "question-2026-03-10",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "检查二分答案的上下界调整逻辑。"
+    },
+    {
+      "question_id": "question-2026-03-11",
+      "concept_refs": [
+        "concept-divide-conquer",
+        "concept-complexity-logarithmic"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "代码为分治法求最大子段和，并需要分析其O(n log n)复杂度，故同时标注分治和对数复杂度。"
+    },
+    {
+      "question_id": "question-2026-03-12",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察归并排序的合并过程。"
+    },
+    {
+      "question_id": "question-2026-03-13",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察快速排序在有序数组上的时间复杂度。"
+    },
+    {
+      "question_id": "question-2026-03-14",
+      "concept_refs": [
+        "concept-merge-sort",
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.8,
+      "reason": "题目涉及多种排序算法特性，但列表中仅有归并和快速排序相关，故选取这两个最相关。"
+    },
+    {
+      "question_id": "question-2026-03-15",
+      "concept_refs": [
+        "concept-high-precision-mul-div"
+      ],
+      "primary_concept": "concept-high-precision-mul-div",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察高精度除法（大整数除以小整数）的实现。"
+    },
+    {
+      "question_id": "question-2026-03-16",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目比较数组和链表，核心是链表的插入操作优势。"
+    },
+    {
+      "question_id": "question-2026-03-17",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "判断二分查找lower_bound实现的正确性。"
+    },
+    {
+      "question_id": "question-2026-03-18",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察快速排序的稳定性。"
+    },
+    {
+      "question_id": "question-2026-03-19",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察递归递推式的时间复杂度分析。"
+    },
+    {
+      "question_id": "question-2026-03-20",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察归并排序统计逆序对的算法。"
+    },
+    {
+      "question_id": "question-2026-03-21",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "涉及唯一分解定理和素数判定，属于质因数分解概念。"
+    },
+    {
+      "question_id": "question-2026-03-22",
+      "concept_refs": [
+        "concept-binary-answer",
+        "concept-algorithm-complexity"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "代码涉及二分答案和复杂度分析，分别对应两个概念。"
+    },
+    {
+      "question_id": "question-2026-03-23",
+      "concept_refs": [
+        "concept-optimal-substructure"
+      ],
+      "primary_concept": "concept-optimal-substructure",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察最优子结构性质与贪心算法的关系。"
+    },
+    {
+      "question_id": "question-2026-03-24",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "考察线性筛的原理。"
+    },
+    {
+      "question_id": "question-2026-03-25",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "涉及递归与非递归转换。"
+    },
+    {
+      "question_id": "question-2026-03-26",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目判断分母的素因子只有2和5，属于质因数分解应用。"
+    },
+    {
+      "question_id": "question-2026-03-27",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "核心算法是在排序后使用二分查找求交集。"
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "paper_id": "2024-12",
+  "exam_page": "exam-2024-12",
+  "source": "gesp-ingest-paper",
+  "classification_mode": "llm_manual_import",
+  "rules": {
+    "prefer_child_concepts": true,
+    "fallback_to_parent_only_when_unsure": true,
+    "max_concept_refs": "unlimited",
+    "allow_parent_refs_only_with_fallback_parent_used": true,
+    "reject_parent_and_child_together": true,
+    "allowed_output_fields": [
+      "question_id",
+      "concept_refs",
+      "primary_concept",
+      "fallback_parent_used",
+      "confidence",
+      "reason"
+    ]
+  },
+  "output_example": {
+    "paper_id": "2024-12",
+    "classifications": [
+      {
+        "question_id": "question-2025-03-01",
+        "concept_refs": [
+          "concept-linked-list"
+        ],
+        "primary_concept": "concept-linked-list",
+        "fallback_parent_used": false,
+        "confidence": 0.94,
+        "reason": "题目核心考查链表操作。"
+      }
+    ]
+  },
+  "concepts": [
+    {
+      "slug": "concept-elementary-number-theory",
+      "name": "初等数论",
+      "summary": "掌握初等数论的基本概念，包括素数、合数、整除、同余等基础理论。",
+      "parent_concept": "",
+      "children": [
+        "concept-gcd-lcm",
+        "concept-modular-arithmetic",
+        "concept-prime-composite",
+        "concept-prime-factorization",
+        "concept-prime-sieves"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-prime-composite",
+      "name": "素数与合数",
+      "summary": "理解素数与合数的定义，掌握奇偶性判断、约数与倍数的概念。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-gcd-lcm",
+      "name": "最大公约数与最小公倍数",
+      "summary": "掌握最大公约数（GCD）和最小公倍数（LCM）的定义及计算方法，重点掌握辗转相除法（欧几里得算法）。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-modular-arithmetic",
+      "name": "同余与模运算",
+      "summary": "理解同余的概念，掌握模运算的基本性质及其在编程中的应用。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-prime-factorization",
+      "name": "质因数分解",
+      "summary": "掌握质因数分解的方法，理解并应用唯一分解定理（算术基本定理）。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-prime-sieves",
+      "name": "素数筛法",
+      "summary": "掌握生成素数表的算法，包括埃氏筛法和线性筛法（欧拉筛）。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-high-precision-cpp",
+      "name": "C++ 高精度运算",
+      "summary": "掌握使用数组模拟大整数的高精度计算方法。",
+      "parent_concept": "",
+      "children": [
+        "concept-high-precision-add-sub",
+        "concept-high-precision-mul-div"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-high-precision-add-sub",
+      "name": "高精度加法与减法",
+      "summary": "掌握使用数组模拟高精度加法和减法的实现，处理进位和借位。",
+      "parent_concept": "concept-high-precision-cpp",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-high-precision-mul-div",
+      "name": "高精度乘法与除法",
+      "summary": "掌握使用数组模拟高精度乘法和除法的实现，理解竖式计算在编程中的模拟。",
+      "parent_concept": "concept-high-precision-cpp",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-linked-list",
+      "name": "链表",
+      "summary": "掌握链表数据结构的基本概念及其在内存中的存储方式。",
+      "parent_concept": "",
+      "children": [
+        "concept-linked-list-advanced",
+        "concept-linked-list-basics",
+        "concept-linked-list-operations"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-linked-list-basics",
+      "name": "单链表基础",
+      "summary": "掌握单链表的创建、遍历和查找操作。",
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-linked-list-operations",
+      "name": "链表插入与删除",
+      "summary": "掌握在链表中插入节点和删除节点的操作，注意指针的断开与重连。",
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-linked-list-advanced",
+      "name": "双链表与循环链表",
+      "summary": "理解双链表和循环链表的结构特点，掌握其基本操作及链表反转算法。",
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-algorithm-complexity",
+      "name": "算法复杂度",
+      "summary": "掌握算法时间复杂度和空间复杂度的估算方法，理解大O记号。",
+      "parent_concept": "",
+      "children": [
+        "concept-complexity-logarithmic",
+        "concept-complexity-polynomial"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-complexity-polynomial",
+      "name": "多项式复杂度",
+      "summary": "能够识别和分析 O(n), O(n^2), O(n^3) 等多项式级别的算法复杂度。",
+      "parent_concept": "concept-algorithm-complexity",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-complexity-logarithmic",
+      "name": "对数复杂度",
+      "summary": "能够识别和分析 O(log n), O(n log n) 等对数级别的算法复杂度。",
+      "parent_concept": "concept-algorithm-complexity",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-binary-algorithm",
+      "name": "二分算法",
+      "summary": "掌握二分思想，能够在有序数据或具有单调性的解空间中进行快速查找。",
+      "parent_concept": "",
+      "children": [
+        "concept-binary-answer",
+        "concept-binary-search"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-binary-search",
+      "name": "二分查找",
+      "summary": "掌握在有序数组中进行二分查找的基本原理和实现，能够处理边界条件。",
+      "parent_concept": "concept-binary-algorithm",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-binary-answer",
+      "name": "二分答案",
+      "summary": "掌握二分答案（二分枚举法）的原理，能够将求最优解问题转化为判定性问题。",
+      "parent_concept": "concept-binary-algorithm",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-recursion",
+      "name": "递归算法",
+      "summary": "掌握递归算法的设计思想，理解递归的执行过程和栈空间特性。",
+      "parent_concept": "",
+      "children": [
+        "concept-recursion-basics",
+        "concept-recursion-complexity",
+        "concept-recursion-optimization"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-recursion-basics",
+      "name": "递归原理与应用",
+      "summary": "理解递归的定义和调用机制，能够应用递归解决基础数学和逻辑问题。",
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-recursion-complexity",
+      "name": "递归复杂度分析",
+      "summary": "能够分析递归算法的时间复杂度和空间复杂度（栈深度）。",
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-recursion-optimization",
+      "name": "递归优化策略",
+      "summary": "了解递归的常见优化策略，如剪枝、记忆化搜索等。",
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-divide-conquer",
+      "name": "分治算法",
+      "summary": "掌握分治算法的基本原理：分解、解决、合并。",
+      "parent_concept": "",
+      "children": [
+        "concept-merge-sort",
+        "concept-quick-sort"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-merge-sort",
+      "name": "归并排序",
+      "summary": "掌握归并排序的分治思想和实现，理解其稳定性和时间复杂度。",
+      "parent_concept": "concept-divide-conquer",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-quick-sort",
+      "name": "快速排序",
+      "summary": "掌握快速排序的分区思想和实现，理解基准值（Pivot）的选择和平均时间复杂度。",
+      "parent_concept": "concept-divide-conquer",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-greedy",
+      "name": "贪心算法",
+      "summary": "掌握贪心算法的基本原理，理解局部最优选择对全局最优的影响。",
+      "parent_concept": "",
+      "children": [
+        "concept-greedy-basics",
+        "concept-optimal-substructure"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-greedy-basics",
+      "name": "贪心算法原理",
+      "summary": "理解贪心算法的适用场景，能够设计简单的贪心策略解决问题。",
+      "parent_concept": "concept-greedy",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-optimal-substructure",
+      "name": "最优子结构",
+      "summary": "理解最优子结构性质，能够证明问题是否适合使用贪心算法。",
+      "parent_concept": "concept-greedy",
+      "children": [],
+      "is_leaf": true
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "question-2024-12-01",
+      "question_type": "single_choice",
+      "stem": "第 1 题\n\n下面关于链表和数组的描述，错误的是（ ）。\n\nA. 当数据数量不确定时，为了应对各种可能的情况，需要申请一个较大的数组，可能浪费空间；此时用链表比较合适，大小可动态调整。\n\nB. 在链表中访问节点的效率较低，时间复杂度为 `O(n)`。\n\nC. 链表插入和删除元素效率较低，时间复杂度为 `O(n)`。\n\nD. 链表的节点在内存中是分散存储的，通过指针连在一起。"
+    },
+    {
+      "question_id": "question-2024-12-02",
+      "question_type": "single_choice",
+      "stem": "第 2 题\n\n在循环单链表中，节点的 `next` 指针指向下一个节点，最后一个节点的 `next` 指针指向（ ）。\n\nA. 当前节点\n\nB. `nullptr`\n\nC. 第一个节点\n\nD. 上一个节点"
+    },
+    {
+      "question_id": "question-2024-12-03",
+      "question_type": "single_choice",
+      "stem": "第 3 题\n\n为了方便链表的增删操作，一些算法生成一个虚拟头节点，方便统一删除头节点和其他节点。下面代码实现了删除链表中值为 `val` 的节点，横线上应填的最佳代码是（ ）。\n\n```cpp\nstruct LinkedNode {\n    int val;\n    LinkedNode* next;\n    LinkedNode(int val):val(val), next(nullptr){}\n};\n\nvoid removeElements(LinkedNode* head, int val) {\n    if (head == nullptr) {\n        return;\n    }\n    LinkedNode* cur;\n    LinkedNode* dummyHead = new LinkedNode(0); //虚拟头节点\n    ________________________________     // 在此处填入代码\n\n    while(cur ->next != nullptr) {\n        if(cur->next->val == val) {\n            LinkedNode* tmp = cur->next;\n            cur->next = cur->next->next;\n            delete tmp;\n            tmp = nullptr;\n        }\n        else {\n            cur = cur ->next;\n        }\n    }\n    head = dummyHead->next;\n    delete dummyHead;\n    dummyHead = nullptr;\n}\n```\n\nA. `dummyHead->next = head; cur = dummyHead;`\n\nB. `dummyHead->next = head->next; cur = dummyHead;`\n\nC. `dummyHead->next = head; cur = dummyHead->next;`\n\nD. `dummyHead->next = head->next; cur = dummyHead->next;`"
+    },
+    {
+      "question_id": "question-2024-12-04",
+      "question_type": "single_choice",
+      "stem": "第 4 题\n\n对下面两个函数，说法错误的是（ ）。\n\n```cpp\nint fibA(int n) {\n    if (n <= 1) return n;\n\n    int f1 = 0, f2 = 1;\n    for (int i = 2; i <= n; ++i) {\n        int temp = f2;\n        f2 = f1 + f2;\n        f1 = temp;\n    }\n    return f2;\n}\n\nint fibB(int n) {\n    if (n <= 1) return n;\n    return fibB(n - 1) + fibB(n - 2);\n}\n```\n\nA. 两个函数的实现的功能相同。\n\nB. `fibA` 采用递推方式。\n\nC. `fibB` 采用的是递归方式。\n\nD. `fibA` 时间复杂度为 `O(n)`，`fibB` 的时间复杂度为 `O(n)`。"
+    },
+    {
+      "question_id": "question-2024-12-05",
+      "question_type": "single_choice",
+      "stem": "第 5 题\n\n两块长方形土地的长宽分别为 24 和 36 米，要将它们分成正方形的小块，使得正方形的尺寸尽可能大。小杨采用如下的辗转相除函数 `gcd(24, 36)` 来求正方形分块的边长，则函数 `gcd` 调用顺序为（ ）。\n\n```cpp\nint gcd(int a, int b) {\n    int big = a > b ? a : b;\n    int small = a < b ? a : b;\n    if (big % small == 0) {\n        return small;\n    }\n    return gcd(small, big % small);\n}\n```\n\nA. `gcd(24, 36)`、`gcd(24, 12)`、`gcd(12, 0)`\n\nB. `gcd(24, 36)`、`gcd(12, 24)`、`gcd(0, 12)`\n\nC. `gcd(24, 36)`、`gcd(24, 12)`\n\nD. `gcd(24, 36)`、`gcd(12, 24)`"
+    },
+    {
+      "question_id": "question-2024-12-06",
+      "question_type": "single_choice",
+      "stem": "第 6 题\n\n唯一分解定理表明，每个大于 1 的自然数可以唯一地写成若干个质数的乘积。下面函数将自然数 `n` 的所有质因数找出来，横线上能填写的最佳代码是（ ）。\n\n```cpp\n#include <vector>\nvector<int> get_prime_factors(int n) {\n    vector<int> factors;\n    if (n <= 1) {\n        cout << \"输入的数必须是大于1的正整数\" << endl;\n        return;\n    }\n    while (n % 2 == 0) {\n        factors.push_back(2);\n        n /= 2;\n    }\n\n    ________________________________ { // 在此处填入代码\n        while (n % i == 0) {\n            factors.push_back(i);\n            n /= i;\n        }\n    }\n\n    if (n > 2) {\n        factors.push_back(n);\n    }\n\n    return factors;\n}\n```\n\nA. `for (int i = 3; i <= n; i ++)`\n\nB. `for (int i = 3; i * i <= n; i ++)`\n\nC. `for (int i = 3; i <= n; i += 2)`\n\nD. `for (int i = 3; i * i <= n; i += 2)`"
+    },
+    {
+      "question_id": "question-2024-12-07",
+      "question_type": "single_choice",
+      "stem": "第 7 题\n\n下述代码实现素数表的埃拉托色尼（埃氏）筛法，筛选出所有小于等于 `n` 的素数。\n\n```cpp\nvector<int> sieve_Eratosthenes(int n) {\n    vector<bool> is_prime(n +1, true);\n    vector<int> primes;\n\n    for (int i = 2; i * i <= n; i++) {\n        if (is_prime[i]) {\n            primes.push_back(i);\n\n            for (int j = i * i; j <= n; j += i) {\n                is_prime[j] = false;\n            }\n        }\n    }\n\n    for (int i = sqrt(n) + 1; i <= n; i++) {\n        if (is_prime[i]) {\n            primes.push_back(i);\n        }\n    }\n\n    return primes;\n}\n```\n\n下面说法，正确的是（ ）。\n\nA. 代码的时间复杂度是 `O(n log log n)`。\n\nB. 在标记非素数时，代码从 `i * i` 开始，可以减少重复标记。\n\nC. 代码会输出所有小于等于 `n` 的奇数。\n\nD. 调用函数 `sieve_Eratosthenes(10)`，函数返回值的数组中包含的元素有：`2, 3, 5, 7, 9`。"
+    },
+    {
+      "question_id": "question-2024-12-08",
+      "question_type": "single_choice",
+      "stem": "第 8 题\n\n下述代码实现素数表的线性筛法，筛选出所有小于等于 `n` 的素数。下面说法正确的是（ ）。\n\n```cpp\nvector<int> sieve_linear(int n) {\n    vector<bool> is_prime(n +1, true);\n    vector<int> primes;\n\n    for (int i = 2; i <= n/2; i++) {\n        if (is_prime[i])\n            primes.push_back(i);\n\n        for (int j = 0; j < primes.size() && i * primes[j] <= n; j++) {\n            is_prime[ i * primes[j] ] = 0;\n            if (i % primes[j] == 0)\n                break;\n        }\n    }\n\n    for (int i = n/2 +1; i <= n; i++) {\n        if (is_prime[i])\n            primes.push_back(i);\n    }\n\n    return primes;\n}\n```\n\nA. 线性筛的时间复杂度是 `O(n)`。\n\nB. 每个合数会被其所有的质因子标记一次。\n\nC. 线性筛和埃拉托色尼筛的实现思路完全相同。\n\nD. 以上都不对。"
+    },
+    {
+      "question_id": "question-2024-12-09",
+      "question_type": "single_choice",
+      "stem": "第 9 题\n\n考虑以下 C++ 代码实现的快速排序算法：\n\n```cpp\nint partition(vector<int>& arr, int left, int right) {\n    int pivot = arr[right]; // 基准值\n    int i = left - 1;\n\n    for (int j = left; j < right; j++) {\n        if (arr[j] < pivot) {\n            i++;\n            swap(arr[i], arr[j]);\n        }\n    }\n    swap(arr[i + 1], arr[right]);\n    return i + 1;\n}\n\n// 快速排序\nvoid quickSort(vector<int>& arr, int left, int right) {\n    if (left < right) {\n        int pi = partition(arr, left, right);\n        quickSort(arr, left, pi - 1);\n        quickSort(arr, pi + 1, right);\n    }\n}\n```\n\n以下关于快速排序的说法，正确的是（ ）。\n\nA. 快速排序通过递归对子问题进行求解。\n\nB. 快速排序的最坏时间复杂度是 `O(n log n)`。\n\nC. 快速排序是一个稳定的排序算法。\n\nD. 在最优情况下，快速排序的时间复杂度是 `O(n)`。"
+    },
+    {
+      "question_id": "question-2024-12-10",
+      "question_type": "single_choice",
+      "stem": "第 10 题\n\n下面关于归并排序，描述正确的是（ ）。\n\nA. 归并排序是一个不稳定的排序算法。\n\nB. 归并排序的时间复杂度在最优、最差和平均情况下都是 `O(n log n)`。\n\nC. 归并排序需要额外的 `O(1)` 空间。\n\nD. 对于输入数组 `{12, 11, 13, 5, 6, 7}`，代码输出结果为：`7 6 5 13 12 11`。"
+    },
+    {
+      "question_id": "question-2024-12-11",
+      "question_type": "single_choice",
+      "stem": "第 11 题\n\n给定一个长度为 `n` 的有序数组 `nums`，其中所有元素都是唯一的。下面的函数返回数组中元素 `target` 的索引。\n\n```cpp\nint binarySearch(vector<int> &nums, int target, int left, int right) {\n    if (left > right) {\n        return -1;\n    }\n\n    int middle = left + ((right - left) / 2);\n    if (nums[middle] == target) {\n        return middle;\n    }\n    else if (nums[middle] < target) {\n        return binarySearch(nums, target, middle + 1, right);\n    }\n    else\n        return binarySearch(nums, target, left, middle - 1);\n    }\n}\n\nint Find(vector<int> &nums, int target) {\n    int n = nums.size();\n    return binarySearch(nums, target, 0, n - 1);\n}\n```\n\n关于上述函数，描述不正确的是（ ）。\n\nA. 函数采用二分查找，每次计算搜索当前搜索区间的中点，然后根据中点的元素值排除一半搜索区间。\n\nB. 函数采用递归求解，每次问题的规模减小一半。\n\nC. 递归的终止条件是中间元素的值等于 `target`，若数组中不包含该元素，递归不会终止。\n\nD. 算法的复杂度为 `O(log n)`。"
+    },
+    {
+      "question_id": "question-2024-12-12",
+      "question_type": "single_choice",
+      "stem": "第 12 题\n\n给定一个长度为 `n` 的有序数组 `nums`，其中可能包含重复元素。下面的函数返回数组中某个元素 `target` 的左边界，若数组中不包含该元素，则返回 `-1`。例如在数组 `nums = [5,7,7,8,8,10]` 中查找 `target=8`，函数返回 `8` 在数组中的左边界的索引为 `3`。则横线上应填写的代码为（ ）。\n\n```cpp\nint getLeftBoundary(vector<int>& nums, int target) {\n    int left = 0;\n    int right = nums.size() - 1;\n\n    while (left < right) {\n        int middle = left + ((right - left) / 2);\n        if (target <= nums[middle])\n            ________________________________    // 在此处填入代码\n        else\n            left = middle+1;\n    }\n\n    return nums[left]==target?left:-1;\n}\n```\n\nA. `right = middle - 1;`\n\nB. `right = middle;`\n\nC. `right = middle + 1;`\n\nD. 以上都不对"
+    },
+    {
+      "question_id": "question-2024-12-13",
+      "question_type": "single_choice",
+      "stem": "第 13 题\n\n假设有多个孩子，数组 `g` 保存所有孩子的胃口值。有多块饼干，数组 `s` 保存所有饼干的尺寸。小杨给孩子们发饼干，每个孩子最多只能给一块饼干。饼干的尺寸大于等于孩子的胃口时，孩子才能得到满足。小杨的目标是尽可能满足越多数量的孩子，因此打算采用贪心算法来找出能满足的孩子的数目，则横线上应填写的代码为（ ）。\n\n```cpp\nint cooki4children(vector<int>& g, vector<int>& s) {\n    sort(g.begin(), g.end());\n    sort(s.begin(), s.end());\n\n    int index = s.size() - 1; // 饼干数组下标\n    int result = 0;\n    for (int i = g.size() - 1; i >= 0; i--) {\n        if (index >= 0 && s[index] >= g[i]) {\n            ________________________________    // 在此处填入代码\n        }\n    }\n    return result;\n}\n```\n\nA. `result++; index--;`\n\nB. `result--; index--;`\n\nC. `result--; index++;`\n\nD. `result++; index++;`"
+    },
+    {
+      "question_id": "question-2024-12-14",
+      "question_type": "single_choice",
+      "stem": "第 14 题\n\n关于分治算法，以下说法中不正确的是（ ）。\n\nA. 分治算法将问题分成子问题，然后分别解决子问题，最后合并结果。\n\nB. 归并排序采用了分治思想。\n\nC. 快速排序采用了分治思想。\n\nD. 冒泡排序采用了分治思想。"
+    },
+    {
+      "question_id": "question-2024-12-15",
+      "question_type": "single_choice",
+      "stem": "第 15 题\n\n小杨编写了一个如下的高精度减法函数：\n\n```cpp\nvector<int> highPrecisionSubtract(vector<int> a, vector<int> b) {\n    vector<int> result;\n    int borrow = 0;\n\n    for (int i = 0; i < a.size(); ++i) {\n        int digitA = a[i];\n        int digitB = i < b.size() ? b[i] : 0;\n\n        int diff = digitA - digitB - borrow;\n        if (diff < 0) {\n            diff += 10;\n            borrow = 1;\n        }\n        else {\n            borrow = 0;\n        }\n\n        result.push_back(diff);\n    }\n\n    while (result.size() > 1 && result.back() == 0) {\n        result.pop_back();\n    }\n\n    return result;\n}\n```\n\n下面说法，正确的是（ ）。\n\nA. 如果数组 `a` 表示的整数小于 `b` 表示的整数，代码会正确返回二者的差为负数。\n\nB. 代码假设输入数字是以倒序存储的，例如 `500` 存储为 `{0, 0, 5}`。\n\nC. 代码的时间复杂度为 `O(a.size() * b.size())`。\n\nD. 当减法结果为 `0` 时，结果数组仍然会存储很多个元素 `0`。"
+    },
+    {
+      "question_id": "question-2024-12-16",
+      "question_type": "true_false",
+      "stem": "第 1 题\n\n单链表只支持在表头进行插入和删除操作。"
+    },
+    {
+      "question_id": "question-2024-12-17",
+      "question_type": "true_false",
+      "stem": "第 2 题\n\n线性筛相对于埃拉托斯特尼筛法，每个合数只会被它的最小质因数筛去一次，因此效率更高。"
+    },
+    {
+      "question_id": "question-2024-12-18",
+      "question_type": "true_false",
+      "stem": "第 3 题\n\n任何一个大于 1 的自然数都可以分解成若干个不同的质数的乘积，且分解方式是唯一的。"
+    },
+    {
+      "question_id": "question-2024-12-19",
+      "question_type": "true_false",
+      "stem": "第 4 题\n\n贪心算法通过每一步选择当前最优解，从而一定能获得全局最优解。"
+    },
+    {
+      "question_id": "question-2024-12-20",
+      "question_type": "true_false",
+      "stem": "第 5 题\n\n递归算法必须有一个明确的结束条件，否则会导致无限递归并可能引发栈溢出。"
+    },
+    {
+      "question_id": "question-2024-12-21",
+      "question_type": "true_false",
+      "stem": "第 6 题\n\n快速排序和归并排序的平均时间复杂度均为 `O(n log n)`，且都是稳定排序。"
+    },
+    {
+      "question_id": "question-2024-12-22",
+      "question_type": "true_false",
+      "stem": "第 7 题\n\n快速排序的时间复杂度总比插入排序的时间复杂度低。"
+    },
+    {
+      "question_id": "question-2024-12-23",
+      "question_type": "true_false",
+      "stem": "第 8 题\n\n二分查找仅适用于数组而不适合链表，因为二分查找需要跳跃式访问元素，链表中执行跳跃式访问的效率低。"
+    },
+    {
+      "question_id": "question-2024-12-24",
+      "question_type": "true_false",
+      "stem": "第 9 题\n\n对有序数组 `{5,13,19,21,37,56,64,75,88,92,100}` 进行二分查找，成功查找元素 `19` 的比较次数是 2。"
+    },
+    {
+      "question_id": "question-2024-12-25",
+      "question_type": "true_false",
+      "stem": "第 10 题\n\n递归函数每次调用自身时，系统都会为新开启的函数分配内存，以存储局部变量、调用地址和其他信息等，导致递归通常比迭代更加耗费内存空间。"
+    },
+    {
+      "question_id": "question-2024-12-26",
+      "question_type": "programming",
+      "stem": "3.1 编程题 1\n\n试题名称：奇妙数字\n\n时间限制：1.0 s\n\n内存限制：512.0 MB\n\n题目描述\n\n小杨认为一个数字 `x` 是奇妙数字当且仅当 `x = p^a`，其中 `p` 为任意质数且 `a` 为正整数。例如，`8 = 2^3`，所以 `8` 是奇妙数字，而 `6` 不是。\n\n对于一个正整数 `n`，小杨想要构建一个包含 `m` 个奇妙数字的集合 `{x1, x2, ..., xm}`，使其满足以下条件：\n\n集合中不包含相同的数字。\n`x1 * x2 * ... * xm` 是 `n` 的因子（即 `x1, x2, ..., xm` 这 `m` 个数字的乘积是 `n` 的因子）。\n\n小杨希望集合包含的奇妙数字尽可能多，请你帮他计算出满足条件的集合最多包含多少个奇妙数字。\n\n输入格式\n\n第一行包含一个正整数 `n`，含义如题面所示。\n\n输出格式\n\n输出一个正整数，代表满足条件的集合最多包含的奇妙数字个数。\n\n样例\n\n输入样例 1：\n\n```text\n128\n```\n\n输出样例 1：\n\n```text\n3\n```\n\n样例解释\n\n关于本样例，符合题意的一个包含 3 个奇妙数字的集合是 `{2, 4, 8}`。首先，因为 `2 = 2^1`，`4 = 2^2`，`8 = 2^3`，所以 `2, 4, 8` 均为奇妙数字。同时，`2 * 4 * 8 = 64` 是 `128` 的因子。\n\n由于无法找到符合题意且同时包含 4 个奇妙数字的集合，因此本样例的答案为 3。\n\n数据范围\n\n| 子任务编号 | 数据点占比 | n |\n|---|---:|---:|\n| 1 | 20% | `<= 10` |\n| 2 | 20% | `<= 1000` |\n| 3 | 60% | `<= 10^12` |\n\n对于全部数据，保证有 `2 <= n <= 10^12`。\n\n参考程序\n\n```cpp\n#include <bits/stdc++.h>\nusing namespace std;\n#define ll long long\nconst int N = 1e5+10;\nll calc(ll x){\n    int ans = 0;\n    ll tmp=1;\n    while(x>=tmp){\n        ans++;\n        x-=tmp;\n        tmp++;\n    }\n    return ans;\n}\nint main(){\n    ll n;\n    cin>>n;\n    ll ans = 0;\n    for(ll i=2;i*i<=n;i++){\n        if(n%i==0){\n            int cnt = 0;\n            while(n%i==0){\n                cnt++;\n                n/=i;\n            }\n            ans+=calc(cnt);\n        }\n    }\n    if(n!=1){\n        ans+=calc(1);\n    }\n    cout<<ans<<\"\\n\";\n}\n```"
+    },
+    {
+      "question_id": "question-2024-12-27",
+      "question_type": "programming",
+      "stem": "3.2 编程题 2\n\n试题名称：武器强化\n\n时间限制：1.0 s\n\n内存限制：512.0 MB\n\n题目描述\n\n小杨有 `n` 种武器和 `m` 种强化材料。第 `i` 种强化材料会适配第 `p_i` 种武器，小杨可以花费 `c_i` 金币将该材料对应的适配武器修改为任意武器。\n\n小杨最喜欢第 `1` 种武器，因此他希望适配该武器的强化材料种类数严格大于其他的武器，请你帮小杨计算为了满足该条件最少需要花费多少金币。\n\n输入格式\n\n第一行包含两个正整数 `n, m`，含义如题面所示。\n\n之后 `m` 行，每行包含两个正整数 `p_i, c_i`，代表第 `i` 种强化材料的适配武器和修改花费。\n\n输出格式\n\n输出一个整数，代表能够使适配第 `1` 种武器的强化材料种类数严格大于其他的武器最少需要花费的金币。\n\n样例\n\n输入样例 1：\n\n```text\n4 4\n1 1\n2 1\n3 1\n3 2\n```\n\n输出样例 1：\n\n```text\n1\n```\n\n样例解释\n\n花费 1，将第三种强化材料的适配武器由 3 改为 1。此时，武器 1 有 2 种强化材料适配，武器 2 和武器 3 都各有 1 种强化材料适配。满足适配第 1 种武器的强化材料种类数严格大于其他的武器。\n\n数据范围\n\n| 子任务编号 | 数据点占比 |\n|---|---:|\n| 1 | 20% |\n| 2 | 20% |\n| 3 | 60% |\n\n对于全部数据，保证有 `1 <= n, m <= 1000`。\n\n参考程序\n\n```cpp\n#include<bits/stdc++.h>\nusing namespace std;\n#define ll long long\nint n, m;\nint cnt[1010];\nvector<int> cs[1010];\nll calc(int aim) {\n    int cur_cnt = cnt[1];\n    ll res = 0;\n    vector<int> tmp;\n    for (int i = 2; i<=n; i++) {\n        int buy = max((int)cs[i].size() - aim + 1, 0);\n        for (int j = 0; j < buy; ++j) {\n            res += (ll)cs[i][j];\n        }\n        cur_cnt += buy;\n        for (int j = buy; j < cs[i].size(); ++j) {\n            tmp.push_back(cs[i][j]);\n        }\n    }\n    sort(tmp.begin(), tmp.end());\n    for (int i = 0; i < aim - cur_cnt; i++) {\n        res += (ll)tmp[i];\n    }\n    return res;\n}\n\nsigned main() {\n    // freopen(\"06.in\", \"r\", stdin);\n    cin >> n >> m;\n    for (int i = 1; i <=m; i++) {\n        int p, c;\n        cin >> p >> c;\n        cnt[p]++;\n        cs[p].push_back(c);\n    }\n    for (int i = 1; i <=n; i++) {\n        sort(cs[i].begin(), cs[i].end());\n    }\n    ll ans = 1e18;\n    for (int i = max(cnt[1], 1); i <= m; ++i) {\n        ans = min(ans, calc(i));\n    }\n    cout << ans << \"\\n\";\n}\n```"
+    }
+  ]
+}

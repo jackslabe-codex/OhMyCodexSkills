@@ -1,0 +1,436 @@
+{
+  "paper_id": "2025-09",
+  "exam_page": "exam-2025-09",
+  "source": "gesp-ingest-paper",
+  "classification_mode": "llm_manual_import",
+  "rules": {
+    "prefer_child_concepts": true,
+    "fallback_to_parent_only_when_unsure": true,
+    "max_concept_refs": "unlimited",
+    "allow_parent_refs_only_with_fallback_parent_used": true,
+    "reject_parent_and_child_together": true,
+    "allowed_output_fields": [
+      "question_id",
+      "concept_refs",
+      "primary_concept",
+      "fallback_parent_used",
+      "confidence",
+      "reason"
+    ]
+  },
+  "output_example": {
+    "paper_id": "2025-09",
+    "classifications": [
+      {
+        "question_id": "question-2025-03-01",
+        "concept_refs": [
+          "concept-linked-list"
+        ],
+        "primary_concept": "concept-linked-list",
+        "fallback_parent_used": false,
+        "confidence": 0.94,
+        "reason": "题目核心考查链表操作。"
+      }
+    ]
+  },
+  "concepts": [
+    {
+      "slug": "concept-elementary-number-theory",
+      "name": "初等数论",
+      "summary": "掌握初等数论的基本概念，包括素数、合数、整除、同余等基础理论。",
+      "parent_concept": "",
+      "children": [
+        "concept-gcd-lcm",
+        "concept-modular-arithmetic",
+        "concept-prime-composite",
+        "concept-prime-factorization",
+        "concept-prime-sieves"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-prime-composite",
+      "name": "素数与合数",
+      "summary": "理解素数与合数的定义，掌握奇偶性判断、约数与倍数的概念。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-gcd-lcm",
+      "name": "最大公约数与最小公倍数",
+      "summary": "掌握最大公约数（GCD）和最小公倍数（LCM）的定义及计算方法，重点掌握辗转相除法（欧几里得算法）。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-modular-arithmetic",
+      "name": "同余与模运算",
+      "summary": "理解同余的概念，掌握模运算的基本性质及其在编程中的应用。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-prime-factorization",
+      "name": "质因数分解",
+      "summary": "掌握质因数分解的方法，理解并应用唯一分解定理（算术基本定理）。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-prime-sieves",
+      "name": "素数筛法",
+      "summary": "掌握生成素数表的算法，包括埃氏筛法和线性筛法（欧拉筛）。",
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-high-precision-cpp",
+      "name": "C++ 高精度运算",
+      "summary": "掌握使用数组模拟大整数的高精度计算方法。",
+      "parent_concept": "",
+      "children": [
+        "concept-high-precision-add-sub",
+        "concept-high-precision-mul-div"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-high-precision-add-sub",
+      "name": "高精度加法与减法",
+      "summary": "掌握使用数组模拟高精度加法和减法的实现，处理进位和借位。",
+      "parent_concept": "concept-high-precision-cpp",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-high-precision-mul-div",
+      "name": "高精度乘法与除法",
+      "summary": "掌握使用数组模拟高精度乘法和除法的实现，理解竖式计算在编程中的模拟。",
+      "parent_concept": "concept-high-precision-cpp",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-linked-list",
+      "name": "链表",
+      "summary": "掌握链表数据结构的基本概念及其在内存中的存储方式。",
+      "parent_concept": "",
+      "children": [
+        "concept-linked-list-advanced",
+        "concept-linked-list-basics",
+        "concept-linked-list-operations"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-linked-list-basics",
+      "name": "单链表基础",
+      "summary": "掌握单链表的创建、遍历和查找操作。",
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-linked-list-operations",
+      "name": "链表插入与删除",
+      "summary": "掌握在链表中插入节点和删除节点的操作，注意指针的断开与重连。",
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-linked-list-advanced",
+      "name": "双链表与循环链表",
+      "summary": "理解双链表和循环链表的结构特点，掌握其基本操作及链表反转算法。",
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-algorithm-complexity",
+      "name": "算法复杂度",
+      "summary": "掌握算法时间复杂度和空间复杂度的估算方法，理解大O记号。",
+      "parent_concept": "",
+      "children": [
+        "concept-complexity-logarithmic",
+        "concept-complexity-polynomial"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-complexity-polynomial",
+      "name": "多项式复杂度",
+      "summary": "能够识别和分析 O(n), O(n^2), O(n^3) 等多项式级别的算法复杂度。",
+      "parent_concept": "concept-algorithm-complexity",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-complexity-logarithmic",
+      "name": "对数复杂度",
+      "summary": "能够识别和分析 O(log n), O(n log n) 等对数级别的算法复杂度。",
+      "parent_concept": "concept-algorithm-complexity",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-binary-algorithm",
+      "name": "二分算法",
+      "summary": "掌握二分思想，能够在有序数据或具有单调性的解空间中进行快速查找。",
+      "parent_concept": "",
+      "children": [
+        "concept-binary-answer",
+        "concept-binary-search"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-binary-search",
+      "name": "二分查找",
+      "summary": "掌握在有序数组中进行二分查找的基本原理和实现，能够处理边界条件。",
+      "parent_concept": "concept-binary-algorithm",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-binary-answer",
+      "name": "二分答案",
+      "summary": "掌握二分答案（二分枚举法）的原理，能够将求最优解问题转化为判定性问题。",
+      "parent_concept": "concept-binary-algorithm",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-recursion",
+      "name": "递归算法",
+      "summary": "掌握递归算法的设计思想，理解递归的执行过程和栈空间特性。",
+      "parent_concept": "",
+      "children": [
+        "concept-recursion-basics",
+        "concept-recursion-complexity",
+        "concept-recursion-optimization"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-recursion-basics",
+      "name": "递归原理与应用",
+      "summary": "理解递归的定义和调用机制，能够应用递归解决基础数学和逻辑问题。",
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-recursion-complexity",
+      "name": "递归复杂度分析",
+      "summary": "能够分析递归算法的时间复杂度和空间复杂度（栈深度）。",
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-recursion-optimization",
+      "name": "递归优化策略",
+      "summary": "了解递归的常见优化策略，如剪枝、记忆化搜索等。",
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-divide-conquer",
+      "name": "分治算法",
+      "summary": "掌握分治算法的基本原理：分解、解决、合并。",
+      "parent_concept": "",
+      "children": [
+        "concept-merge-sort",
+        "concept-quick-sort"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-merge-sort",
+      "name": "归并排序",
+      "summary": "掌握归并排序的分治思想和实现，理解其稳定性和时间复杂度。",
+      "parent_concept": "concept-divide-conquer",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-quick-sort",
+      "name": "快速排序",
+      "summary": "掌握快速排序的分区思想和实现，理解基准值（Pivot）的选择和平均时间复杂度。",
+      "parent_concept": "concept-divide-conquer",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-greedy",
+      "name": "贪心算法",
+      "summary": "掌握贪心算法的基本原理，理解局部最优选择对全局最优的影响。",
+      "parent_concept": "",
+      "children": [
+        "concept-greedy-basics",
+        "concept-optimal-substructure"
+      ],
+      "is_leaf": false
+    },
+    {
+      "slug": "concept-greedy-basics",
+      "name": "贪心算法原理",
+      "summary": "理解贪心算法的适用场景，能够设计简单的贪心策略解决问题。",
+      "parent_concept": "concept-greedy",
+      "children": [],
+      "is_leaf": true
+    },
+    {
+      "slug": "concept-optimal-substructure",
+      "name": "最优子结构",
+      "summary": "理解最优子结构性质，能够证明问题是否适合使用贪心算法。",
+      "parent_concept": "concept-greedy",
+      "children": [],
+      "is_leaf": true
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "question-2025-09-01",
+      "question_type": "single_choice",
+      "stem": "第 1 题\n\n以下哪种情况使用链表比数组更合适？\n\nA. 数据量固定且读多写少\nB. 需要频繁在中间或开头插入、删除元素\nC. 需要高效随机访问元素\nD. 存储空间必须连续"
+    },
+    {
+      "question_id": "question-2025-09-02",
+      "question_type": "single_choice",
+      "stem": "第 2 题\n\n函数 `removeElements` 删除单链表中所有结点值等于 `val` 的结点，并返回新的头结点，其中链表头结点为 `head`，则横线处填写（ ）。\n\n```cpp\n// 结点结构体\nstruct Node {\n    int val;\n    Node* next;\n    Node() : val(0), next(nullptr) {}\n    Node(int x) : val(x), next(nullptr) {}\n    Node(int x, Node *next) : val(x), next(next) {}\n};\nNode* removeElements(Node* head, int val) {\n    Node dummy(0, head); // 哑结点，统一处理头结点\n    Node* cur = &dummy;\n    while (cur->next) {\n        if (cur->next->val == val) {\n            _______________________ // 在此填入代码\n        }\n        else {\n            cur = cur->next;\n        }\n    }\n    return dummy.next;\n}\n```\n\nA.\n```cpp\nNode* del = cur;\ncur = del->next;\ndelete del;\n```\n\nB.\n```cpp\nNode* del = cur->next;\ncur->next = del;\ndelete del;\n```\n\nC.\n```cpp\nNode* del = cur->next;\ncur->next = del->next;\ndelete del;\n```\n\nD.\n```cpp\nNode* del = cur->next;\ndelete del;\ncur->next = del->next;\n```"
+    },
+    {
+      "question_id": "question-2025-09-03",
+      "question_type": "single_choice",
+      "stem": "第 3 题\n\n函数 `hasCycle` 采用 Floyd 快慢指针法判断一个单链表中是否存在环，链表的头节点为 `head`，即用两个指针在链表上前进：`slow` 每次走 1 步，`fast` 每次走 2 步，若存在环，`fast` 终会追上 `slow`（相遇）；若无环，`fast` 会先到达 `nullptr`，则横线上应填写（ ）。\n\n```cpp\nstruct Node {\n    int val;\n    Node *next;\n    Node(int x) : val(x), next(nullptr) {}\n};\nbool hasCycle(Node *head) {\n    if (!head || !head->next)\n        return false;\n    Node* slow = head;\n    Node* fast = head->next;\n    while (fast && fast->next) {\n        if (slow == fast) return true;\n        _______________________ // 在此填入代码\n    }\n    return false;\n}\n```\n\nA.\n```cpp\nslow = slow->next;\nfast = fast->next->next;\n```\n\nB.\n```cpp\nslow = fast->next;\nfast = slow->next->next;\n```\n\nC.\n```cpp\nslow = slow->next;\nfast = slow->next->next;\n```\n\nD.\n```cpp\nslow = fast->next;\nfast = fast->next->next;\n```"
+    },
+    {
+      "question_id": "question-2025-09-04",
+      "question_type": "single_choice",
+      "stem": "第 4 题\n\n函数 `isPerfectNumber` 判断一个正整数是否为完全数（该数是否即等于它的真因子之和），则横线上应填写（ ）。一个正整数 `n` 的真因子包括所有小于 `n` 的正因子，如 28 的真因子为 1, 2, 4, 7, 14。\n\n```cpp\nbool isPerfectNumber(int n) {\n    if(n <= 1) return false;\n    int sum = 1;\n    for(int i = 2; ______; i++) {\n        if(n % i == 0) {\n            sum += i;\n            if(i != n/i) sum += n/i;\n        }\n    }\n    return sum == n;\n}\n```\n\nA. `i <= n`\nB. `i*i <= n`\nC. `i <= n/2`\nD. `i < n`"
+    },
+    {
+      "question_id": "question-2025-09-05",
+      "question_type": "single_choice",
+      "stem": "第 5 题\n\n以下代码计算两个正整数的最大公约数（GCD），横线上应填写（ ）。\n\n```cpp\nint gcd0(int a, int b) {\n    if (a < b) {\n        swap(a, b);\n    }\n    while(b != 0) {\n        int temp = a % b;\n        a = b;\n        b = temp;\n    }\n    return ______;\n}\n```\n\nA. `b`\nB. `a`\nC. `temp`\nD. `a * b`"
+    },
+    {
+      "question_id": "question-2025-09-06",
+      "question_type": "single_choice",
+      "stem": "第 6 题\n\n函数 `sieve` 实现埃拉托斯特尼筛法（埃氏筛），横线处应填入（ ）。\n\n```cpp\nvector<bool> sieve(int n) {\n    vector<bool> is_prime(n+1, true);\n    is_prime[0] = is_prime[1] = false;\n    for(int i = 2; i <= n; i++) {\n        if(is_prime[i]) {\n            for(int j = ______; j <= n; j += i) {\n                is_prime[j] = false;\n            }\n        }\n    }\n    return is_prime;\n}\n```\n\nA. `i`\nB. `i+1`\nC. `i*2`\nD. `i*i`"
+    },
+    {
+      "question_id": "question-2025-09-07",
+      "question_type": "single_choice",
+      "stem": "第 7 题\n\n函数 `linearSieve` 实现线性筛法（欧拉筛），横线处应填入（ ）。\n\n```cpp\nvector<int> linearSieve(int n) {\n    vector<bool> is_prime(n+1, true);\n    vector<int> primes;\n    for(int i = 2; i <= n; i++) {\n        if(is_prime[i]) primes.push_back(i);\n        for(int p : primes) {\n            if(p * i > n) break;\n            is_prime[p * i] = false;\n            if(________) break;\n        }\n    }\n    return primes;\n}\n```\n\nA. `i % p == 0`\nB. `p % i == 0`\nC. `i == p`\nD. `i * p == n`"
+    },
+    {
+      "question_id": "question-2025-09-08",
+      "question_type": "single_choice",
+      "stem": "第 8 题\n\n关于埃氏筛和线性筛的比较，下列说法错误的是（ ）。\n\nA. 埃氏筛可能会对同一个合数进行多次标记\nB. 线性筛的理论时间复杂度更优，所以线性筛的速度往往优于埃氏筛\nC. 线性筛保证每个合数只被其最小质因子筛到一次\nD. 对于常见范围（`n <= 10^7`），埃氏筛因实现简单，常数较小，其速度往往优于线性筛"
+    },
+    {
+      "question_id": "question-2025-09-09",
+      "question_type": "single_choice",
+      "stem": "第 9 题\n\n唯一分解定理描述的是（ ）。\n\nA. 每个整数都能表示为任意素数的乘积\nB. 每个大于 1 的整数能唯一分解为素数幂乘积（忽略顺序）\nC. 合数不能分解为素数乘积\nD. 素数只有两个因子：1 和自身"
+    },
+    {
+      "question_id": "question-2025-09-10",
+      "question_type": "single_choice",
+      "stem": "第 10 题\n\n给定一个 `n x n` 的矩阵 `matrix`，矩阵的每一行和每一列都按升序排列。函数 `countLE` 返回矩阵中第 `k` 小的元素，则两处横线上应分别填写（ ）。\n\n```cpp\n// 统计矩阵中 <= x 的元素个数：从左下角开始\nint countLE(const vector<vector<int>>& matrix, int x) {\n    int n = (int)matrix.size();\n    int i = n - 1, j = 0, cnt = 0;\n    while (i >= 0 && j < n) {\n        if (matrix[i][j] <= x) {\n            cnt += i + 1;\n            ++j;\n        }\n        else {\n            --i;\n        }\n    }\n    return cnt;\n}\nint kthSmallest(vector<vector<int>>& matrix, int k) {\n    int n = (int)matrix.size();\n    int lo = matrix[0][0];\n    int hi = matrix[n - 1][n - 1];\n    while (lo < hi) {\n        int mid = lo + (hi - lo) / 2;\n        if (countLE(matrix, mid) >= k) {\n            ________________    // 在此处填入代码\n        } else {\n            ________________    // 在此处填入代码\n        }\n    }\n    return lo;\n}\n```\n\nA.\n```cpp\nhi = mid - 1;\nlo = mid + 1;\n```\n\nB.\n```cpp\nhi = mid;\nlo = mid;\n```\n\nC.\n```cpp\nhi = mid;\nlo = mid + 1;\n```\n\nD.\n```cpp\nhi = mid + 1;\nlo = mid;\n```"
+    },
+    {
+      "question_id": "question-2025-09-11",
+      "question_type": "single_choice",
+      "stem": "第 11 题\n\n下述 C++ 代码实现了快速排序算法，下面说法错误的是（ ）。\n\n```cpp\nint partition(vector<int>& arr, int low, int high) {\n    int i = low, j = high;\n    int pivot = arr[low]; // 以首元素为基准\n    while (i < j) {\n        while (i < j && arr[j] >= pivot) j--; // 从右往左查找\n        while (i < j && arr[i] <= pivot) i++; // 从左往右查找\n        if (i < j) swap(arr[i], arr[j]);\n    }\n    swap(arr[i], arr[low]);\n    return i;\n}\nvoid quickSort(vector<int>& arr, int low, int high) {\n    if (low >= high) return;\n    int p = partition(arr, low, high);\n    quickSort(arr, low, p - 1);\n    quickSort(arr, p + 1, high);\n}\n```\n\nA. 快速排序之所以叫“快速”，是因为它在平均情况下运行速度较快，常数小、就地排序，实践中通常比归并排序更高效。\nB. 在平均情况下，划分的递归层数为 `log n`，每层中的总循环数为 `n`，总时间为 `O(n log n)`。\nC. 在最差情况下，每轮划分操作都将长度为 `n` 的数组划分为长度为 0 和 `n - 1` 的两个子数组，此时递归层数达到 `n`，每层中的循环数为 `n`，总时间为 `O(n^2)`。\nD. 划分函数 `partition` 中“从右往左查找”与“从左往右查找”的顺序可以交换。"
+    },
+    {
+      "question_id": "question-2025-09-12",
+      "question_type": "single_choice",
+      "stem": "第 12 题\n\n下述 C++ 代码实现了归并排序算法，则横线上应填写（ ）。\n\n```cpp\nvoid merge(vector<int> &nums, int left, int mid, int right) {\n    // 左子数组区间为 [left, mid], 右子数组区间为 [mid+1, right]\n    vector<int> tmp(right - left + 1);\n    int i = left, j = mid + 1, k = 0;\n    while (i <= mid && j <= right) {\n        if (nums[i] <= nums[j])\n            tmp[k++] = nums[i++];\n        else\n            tmp[k++] = nums[j++];\n    }\n    while (i <= mid) {\n        tmp[k++] = nums[i++];\n    }\n    while (________) { // 在此处填入代码\n        tmp[k++] = nums[j++];\n    }\n    for (k = 0; k < tmp.size(); k++) {\n        nums[left + k] = tmp[k];\n    }\n}\nvoid mergeSort(vector<int> &nums, int left, int right) {\n    if (left >= right)\n        return;\n    int mid = (left + right) / 2;\n    mergeSort(nums, left, mid);\n    mergeSort(nums, mid + 1, right);\n    merge(nums, left, mid, right);\n}\n```\n\nA. `i < mid`\nB. `j < right`\nC. `i <= mid`\nD. `j <= right`"
+    },
+    {
+      "question_id": "question-2025-09-13",
+      "question_type": "single_choice",
+      "stem": "第 13 题\n\n假设你是一家电影院的排片经理，只有一个放映厅。你有一个电影列表 `movies`，其中 `movies[i] = [start_i, end_i]` 表示第 `i` 部电影的开始和结束时间。请你找出最多能安排多少部不重叠的电影，则横线上应分别填写的代码为（ ）。\n\n```cpp\nint maxMovies(vector<vector<int>>& movies) {\n    if (movies.empty()) return 0;\n    sort(movies.begin(), movies.end(), [](const vector<int>& a, const vector<int>& b) {\n        return ______; // 在此处填入代码\n    });\n    int count = 1;\n    int lastEnd = movies[0][1];\n    for (int i = 1; i < movies.size(); i++) {\n        if (movies[i][0] >= lastEnd) {\n            count++;\n            ______ = movies[i][1]; // 在此处填入代码\n        }\n    }\n    return count;\n}\n```\n\nA. `a[0] < b[0]` 和 `lastEnd`\nB. `a[1] < b[1]` 和 `lastEnd`\nC. `a[0] < b[0]` 和 `movies[i][0]`\nD. `a[1] < b[1]` 和 `movies[i][0]`"
+    },
+    {
+      "question_id": "question-2025-09-14",
+      "question_type": "single_choice",
+      "stem": "第 14 题\n\n给定一个整数数组 `nums`，下面代码找到一个具有最大和的连续子数组，并返回该最大和。则下面说法错误的是（ ）。\n\n```cpp\nint crossSum(vector<int>& nums, int left, int mid, int right) {\n    int leftSum = INT_MIN, rightSum = INT_MIN;\n    int sum = 0;\n    for (int i = mid; i >= left; i--) {\n        sum += nums[i];\n        leftSum = max(leftSum, sum);\n    }\n    sum = 0;\n    for (int i = mid + 1; i <= right; i++) {\n        sum += nums[i];\n        rightSum = max(rightSum, sum);\n    }\n    return leftSum + rightSum;\n}\nint helper(vector<int>& nums, int left, int right) {\n    if (left == right)\n        return nums[left];\n    int mid = left + (right - left) / 2;\n    int leftMax = helper(nums, left, mid);\n    int rightMax = helper(nums, mid + 1, right);\n    int crossMax = crossSum(nums, left, mid, right);\n    return max({leftMax, rightMax, crossMax});\n}\nint maxSubArray(vector<int>& nums) {\n    return helper(nums, 0, nums.size() - 1);\n}\n```\n\nA. 上述代码采用分治算法实现\nB. 上述代码采用贪心算法\nC. 上述代码时间复杂度为 `O(n log n)`\nD. 上述代码采用递归方式实现"
+    },
+    {
+      "question_id": "question-2025-09-15",
+      "question_type": "single_choice",
+      "stem": "第 15 题\n\n给定一个由非负整数组成的数组 `digits`，表示一个非负整数的各位数字，其中最高位在数组首位，且 `digits` 不含前导 0（除非是 0 本身）。下面代码对该整数执行 `+1` 操作，并返回结果数组，则横线上应填写（ ）。\n\n```cpp\nvector<int> plusOne(vector<int>& digits) {\n    for (int i = (int)digits.size() - 1; i >= 0; --i) {\n        if (digits[i] < 9) {\n            digits[i] += 1;\n            return digits;\n        }\n        ________________ // 在此处填入代码\n    }\n    digits.insert(digits.begin(), 1);\n    return digits;\n}\n```\n\nA.\n```cpp\ndigits[i] = 0;\n```\n\nB.\n```cpp\ndigits[i] = 9;\n```\n\nC.\n```cpp\ndigits[i] = 1;\n```\n\nD.\n```cpp\ndigits[i] = 10;\n```"
+    },
+    {
+      "question_id": "question-2025-09-16",
+      "question_type": "true_false",
+      "stem": "第 1 题\n\n基于下面定义的函数，通过判断 `isDivisibleBy9(n) == isDigitSumDivisibleBy9(n)` 代码可验算如果一个数能被 9 整除，则它的各位数字之和能被 9 整除。\n\n```cpp\nbool isDivisibleBy9(int n) {\n    return n % 9 == 0;\n}\n\nbool isDigitSumDivisibleBy9(int n) {\n    int sum = 0;\n    string numStr = to_string(n);\n    for (char c : numStr) {\n        sum += (c - '0');\n    }\n    return sum % 9 == 0;\n}\n```"
+    },
+    {
+      "question_id": "question-2025-09-17",
+      "question_type": "true_false",
+      "stem": "第 2 题\n\n假设函数 `gcd()` 能正确求两个正整数的最大公约数，则下面的 `findMusicalPattern(4, 6)` 函数返回 2。\n\n```cpp\nvoid findMusicalPattern(int rhythm1, int rhythm2) {\n    int commonDivisor = gcd(rhythm1, rhythm2);\n    int patternLength = (rhythm1 * rhythm2) / commonDivisor;\n    return patternLength;\n}\n```"
+    },
+    {
+      "question_id": "question-2025-09-18",
+      "question_type": "true_false",
+      "stem": "第 3 题\n\n下面递归实现的斐波那契数列的时间复杂度为 `O(2^n)`。\n\n```cpp\nlong long fib_memo(int n, long long memo[]) {\n    if (n <= 1) return n;\n    if (memo[n] != -1) return memo[n];\n    memo[n] = fib_memo(n - 1, memo) + fib_memo(n - 2, memo);\n    return memo[n];\n}\nint main() {\n    int n = 40;\n    long long memo[100];\n    fill_n(memo, 100, -1);\n    long long result2 = fib_memo(n, memo);\n    return 0;\n}\n```"
+    },
+    {
+      "question_id": "question-2025-09-19",
+      "question_type": "true_false",
+      "stem": "第 4 题\n\n链表通过更改指针实现高效的结点插入与删除，但结点访问效率低、占用内存较多，且对缓存利用不友好。"
+    },
+    {
+      "question_id": "question-2025-09-20",
+      "question_type": "true_false",
+      "stem": "第 5 题\n\n二分查找依赖数据的有序性，通过循环逐步缩减一半搜索区间来进行查找，且仅适用于数组或基于数组实现的数据结构。"
+    },
+    {
+      "question_id": "question-2025-09-21",
+      "question_type": "true_false",
+      "stem": "第 6 题\n\n线性筛关键是“每个合数只会被最小质因子筛到一次”，因此为 `O(n)`。"
+    },
+    {
+      "question_id": "question-2025-09-22",
+      "question_type": "true_false",
+      "stem": "第 7 题\n\n快速排序和归并排序都是稳定的排序算法。"
+    },
+    {
+      "question_id": "question-2025-09-23",
+      "question_type": "true_false",
+      "stem": "第 8 题\n\n下面代码采用分治算法求解标准 3 柱汉诺塔问题，时间复杂度为 `O(n log n)`。\n\n```cpp\nvoid move(vector<int> &src, vector<int> &tar) {\n    int pan = src.back();\n    src.pop_back();\n    tar.push_back(pan);\n}\nvoid dfs(int n, vector<int> &src, vector<int> &buf, vector<int> &tar) {\n    if (n == 1) {\n        move(src, tar);\n        return;\n    }\n\n    dfs(n - 1, src, tar, buf);\n    move(src, tar);\n    dfs(n - 1, buf, src, tar);\n}\nvoid solveHanota(vector<int> &A, vector<int> &B, vector<int> &C) {\n    int n = A.size();\n    dfs(n, A, B, C);\n}\n```"
+    },
+    {
+      "question_id": "question-2025-09-24",
+      "question_type": "true_false",
+      "stem": "第 9 题\n\n所有递归算法都可以转换为迭代算法。"
+    },
+    {
+      "question_id": "question-2025-09-25",
+      "question_type": "true_false",
+      "stem": "第 10 题\n\n贪心算法总能得到全局最优解。"
+    },
+    {
+      "question_id": "question-2025-09-26",
+      "question_type": "programming",
+      "stem": "3.1 编程题 1\n\n题目描述\n\n试题名称：数字选取\n时间限制：1.0 s\n内存限制：512.0 MB\n\n给定正整数 `n`，现在有 `1, 2, ..., n` 共计 `n` 个整数。你需要从这 `n` 个整数中选取一些整数，使得所选取的整数中任意两个不同的整数均互质（也就是说，这两个整数的最大公因数为 1）。请你最大化所选取整数的数量。\n\n例如，当 `n = 9` 时，可以选择 `1, 5, 7, 8, 9` 共计 5 个整数。可以验证不存在数量更多的选取整数的方案。\n\n输入格式\n\n一行，一个正整数 `n`，表示给定的正整数。\n\n输出格式\n\n一行，一个正整数，表示所选取整数的最大数量。\n\n样例\n\n输入样例 1：\n\n```text\n6\n```\n\n输出样例 1：\n\n```text\n4\n```\n\n输入样例 2：\n\n```text\n9\n```\n\n输出样例 2：\n\n```text\n5\n```\n\n样例解释\n\n无。\n\n数据范围\n\n对于 40% 的测试点，保证 `1 <= n <= 1000`。\n对于所有测试点，保证 `1 <= n <= 10^5`。\n\n参考程序\n\n```cpp\n#include <algorithm>\n#include <cstdio>\nusing namespace std;\nconst int N = 1e5 + 5;\nint n, p[N], cnt;\nbool np[N];\nint main() {\n    scanf(\"%d\", &n);\n    for (int i = 2; i <= n; i++) {\n        if (!np[i]) p[++cnt] = i;\n        for (int j = 1; j <= cnt && i * p[j] <= n; j++) {\n            np[i * p[j]] = 1;\n            if (i % p[j] == 0) break;\n        }\n    }\n    printf(\"%d\\n\", 1 + cnt);\n    return 0;\n}\n```"
+    },
+    {
+      "question_id": "question-2025-09-27",
+      "question_type": "programming",
+      "stem": "3.2 编程题 2\n\n题目描述\n\n试题名称：有趣的数字和\n时间限制：1.0 s\n内存限制：512.0 MB\n\n如果一个正整数的二进制表示包含奇数个 1，那么小 A 就会认为这个正整数是有趣的。\n\n例如，7 的二进制表示为 `(111)_2`，包含 1 的个数为 3 个，所以 7 是有趣的。但是 9 = `(1001)_2` 包含 2 个 1，所以 9 不是有趣的。\n\n给定正整数 `l, r`，请你统计满足 `l <= n <= r` 的有趣的整数 `n` 之和。\n\n输入格式\n\n一行，两个正整数 `l, r`，表示给定的正整数。\n\n输出格式\n\n一行，一个正整数，表示 `l, r` 之间有趣的整数之和。\n\n样例\n\n输入样例 1：\n\n```text\n3 8\n```\n\n输出样例 1：\n\n```text\n19\n```\n\n输入样例 2：\n\n```text\n65 36248\n```\n\n输出样例 2：\n\n```text\n328505490\n```\n\n样例解释\n\n无。\n\n数据范围\n\n对于 40% 的测试点，保证 `1 <= l <= r <= 10^4`。\n对于另外 30% 的测试点，保证 `l = 1` 并且 `r = 2^k - 1`，其中 `k` 是大于 1 的正整数。\n对于所有测试点，保证 `1 <= l <= r <= 10^9`。\n\n提示：由于本题的数据范围较大，整数类型请使用 `long long`。\n\n参考程序\n\n```cpp\n#include <algorithm>\n#include <cstdio>\nusing namespace std;\n\nint l, r;\nlong long ans;\n\npair<int, long long> cal2(int n, int p) {\n    if (n == 0) { return {1 - p, 0}; }\n    if (n == 1) { return {1, p}; }\n    return {(n + 1) / 2, 1ll * n * (n + 1) / 4};\n}\n\npair<int, long long> cal(int n, int p) {\n    if (n <= 1) { return cal2(n, p); }\n    long long x = 1ll << (31 - __builtin_clz(n));\n    auto l = cal2(x - 1, p);\n    auto r = cal(n - x, 1 - p);\n    return {l.first + r.first, l.second + r.second + x * r.first};\n}\n\nint main() {\n    scanf(\"%d%d\", &l, &r);\n    ans -= cal(l - 1, 1).second;\n    ans += cal(r, 1).second;\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```"
+    }
+  ]
+}

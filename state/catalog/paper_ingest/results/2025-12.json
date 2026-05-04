@@ -1,0 +1,282 @@
+{
+  "paper_id": "2025-12",
+  "classifications": [
+    {
+      "question_id": "question-2025-12-01",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察循环单链表的遍历操作，循环链表属于链表的高级变体，概念 linked-list-advanced 明确包含循环链表的结构与操作。"
+    },
+    {
+      "question_id": "question-2025-12-02",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察在链表尾部插入新节点的操作，属于链表的基本插入操作。"
+    },
+    {
+      "question_id": "question-2025-12-03",
+      "concept_refs": [
+        "concept-linked-list-advanced",
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目对比双链表和单链表删除指定节点的时间复杂度，涉及双链表的结构特点（advanced）和删除操作（operations）。"
+    },
+    {
+      "question_id": "question-2025-12-04",
+      "concept_refs": [
+        "concept-modular-arithmetic"
+      ],
+      "primary_concept": "concept-modular-arithmetic",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察同余的定义及其基本性质，即 a ≡ b (mod m) 等价于 m 整除 a-b。"
+    },
+    {
+      "question_id": "question-2025-12-05",
+      "concept_refs": [
+        "concept-gcd-lcm",
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察欧几里得算法（GCD）的递归与迭代实现，以及递归算法的空间复杂度（栈深度）和执行效率分析。"
+    },
+    {
+      "question_id": "question-2025-12-06",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目直接询问唯一分解定理（算术基本定理）的内容，该定理是质因数分解的理论核心。"
+    },
+    {
+      "question_id": "question-2025-12-07",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察线性筛法（欧拉筛）生成素数表的代码实现，属于素数筛法的具体应用。"
+    },
+    {
+      "question_id": "question-2025-12-08",
+      "concept_refs": [
+        "concept-merge-sort",
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察常见排序算法的稳定性，主要涉及归并排序（稳定）和快速排序（不稳定）的性质对比。"
+    },
+    {
+      "question_id": "question-2025-12-09",
+      "concept_refs": [
+        "concept-merge-sort",
+        "concept-complexity-logarithmic"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察归并排序的代码实现及其时间复杂度、空间复杂度和适用性。核心概念是归并排序，同时涉及对数级复杂度的分析。"
+    },
+    {
+      "question_id": "question-2025-12-10",
+      "concept_refs": [
+        "concept-quick-sort",
+        "concept-complexity-polynomial"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察快速排序的代码实现及其最坏情况下的时间复杂度。核心概念是快速排序，同时涉及多项式级复杂度（O(n^2)）的分析。"
+    },
+    {
+      "question_id": "question-2025-12-11",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察在有序数组中查找特定元素的二分查找代码实现（lower_bound）。"
+    },
+    {
+      "question_id": "question-2025-12-12",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察使用二分法（二分答案）解决最优解问题，将求最小x的问题转化为判定性问题。"
+    },
+    {
+      "question_id": "question-2025-12-13",
+      "concept_refs": [
+        "concept-recursion-basics",
+        "concept-algorithm-complexity"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目对比递归和循环实现阶乘计算，考察递归的基本原理以及两种实现方式在时间和空间复杂度上的区别。"
+    },
+    {
+      "question_id": "question-2025-12-14",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察使用贪心算法解决任务调度问题，按利润从高到低排序并尽量安排。"
+    },
+    {
+      "question_id": "question-2025-12-15",
+      "concept_refs": [
+        "concept-high-precision-add-sub"
+      ],
+      "primary_concept": "concept-high-precision-add-sub",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察使用数组模拟大整数的高精度加法实现，处理进位。"
+    },
+    {
+      "question_id": "question-2025-12-16",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "primary_concept": "concept-linked-list",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目判断题涉及链表和数组的特性对比，主要考察链表的基础概念（插入删除优势）及其与数组的区别。虽然提到了随机查找，但这是作为链表的错误特性出现的，核心考点仍是链表基础。"
+    },
+    {
+      "question_id": "question-2025-12-17",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察最小公倍数（LCM）的计算公式及其与最大公约数（GCD）的关系，属于最大公约数与最小公倍数知识点。"
+    },
+    {
+      "question_id": "question-2025-12-18",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目描述了在单链表中删除结点的具体操作技巧，属于链表插入与删除的知识点。"
+    },
+    {
+      "question_id": "question-2025-12-19",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目对比了线性筛法和埃氏筛法，考察素数筛法的算法原理及时间复杂度。"
+    },
+    {
+      "question_id": "question-2025-12-20",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目讨论了二分查找的适用条件（有序数据）及其效率分析，属于二分查找知识点。"
+    },
+    {
+      "question_id": "question-2025-12-21",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目涉及快速排序中基准值（Pivot）的选择策略及其对算法性能的影响，属于快速排序知识点。"
+    },
+    {
+      "question_id": "question-2025-12-22",
+      "concept_refs": [
+        "concept-greedy-basics",
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": true,
+      "confidence": 1.0,
+      "reason": "题目同时定义了贪心算法和分治算法的基本思想。贪心算法对应子概念'贪心算法原理'，分治算法因无更具体的子概念（仅有具体排序算法），故使用父概念'分治算法'。"
+    },
+    {
+      "question_id": "question-2025-12-23",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目要求分析递归实现的斐波那契函数的时间复杂度，属于递归复杂度分析知识点。"
+    },
+    {
+      "question_id": "question-2025-12-24",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目强调了递归函数终止条件的重要性以及栈溢出的风险，属于递归的基础原理与应用范畴。"
+    },
+    {
+      "question_id": "question-2025-12-25",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考察贪心算法的基本性质，即局部最优解与全局最优解的关系，属于贪心算法原理的基础知识。"
+    },
+    {
+      "question_id": "question-2025-12-26",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目要求寻找满足条件的最小最大体力值，解空间具有单调性，适合使用二分答案（二分枚举）算法求解。"
+    },
+    {
+      "question_id": "question-2025-12-27",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目核心操作涉及质数的乘除，解题关键在于对序列中的每个数进行质因数分解，将问题转化为各质因数指数的调整问题。"
+    }
+  ]
+}

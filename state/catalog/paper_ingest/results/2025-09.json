@@ -1,0 +1,276 @@
+{
+  "paper_id": "2025-09",
+  "classifications": [
+    {
+      "question_id": "question-2025-09-01",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目比较链表与数组的适用场景，核心是链表插入删除的效率，对应链表插入与删除操作。"
+    },
+    {
+      "question_id": "question-2025-09-02",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "代码填空实现删除单链表中指定值的结点，属于链表插入与删除操作。"
+    },
+    {
+      "question_id": "question-2025-09-03",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "primary_concept": "concept-linked-list",
+      "fallback_parent_used": true,
+      "confidence": 0.8,
+      "reason": "快慢指针判断链表环，涉及链表数据结构，但无直接对应子概念，故用父概念。"
+    },
+    {
+      "question_id": "question-2025-09-04",
+      "concept_refs": [
+        "concept-elementary-number-theory"
+      ],
+      "primary_concept": "concept-elementary-number-theory",
+      "fallback_parent_used": true,
+      "confidence": 0.8,
+      "reason": "完全数判断属于初等数论，但子概念中无直接对应，故用父概念。"
+    },
+    {
+      "question_id": "question-2025-09-05",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "辗转相除法求最大公约数，直接对应最大公约数与最小公倍数概念。"
+    },
+    {
+      "question_id": "question-2025-09-06",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "埃氏筛法代码填空，直接对应素数筛法概念。"
+    },
+    {
+      "question_id": "question-2025-09-07",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "线性筛法代码填空，直接对应素数筛法概念。"
+    },
+    {
+      "question_id": "question-2025-09-08",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "比较埃氏筛和线性筛，属于素数筛法概念。"
+    },
+    {
+      "question_id": "question-2025-09-09",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "唯一分解定理直接对应质因数分解概念。"
+    },
+    {
+      "question_id": "question-2025-09-10",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "有序矩阵找第k小元素，使用二分答案算法。"
+    },
+    {
+      "question_id": "question-2025-09-11",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "快速排序算法相关题目，直接对应快速排序概念。"
+    },
+    {
+      "question_id": "question-2025-09-12",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "归并排序代码填空，直接对应归并排序概念。"
+    },
+    {
+      "question_id": "question-2025-09-13",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "电影排片问题，使用贪心策略安排最多不重叠电影，属于贪心算法原理。"
+    },
+    {
+      "question_id": "question-2025-09-14",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.8,
+      "reason": "最大子数组和问题使用分治算法，但子概念无直接对应，故用父概念。"
+    },
+    {
+      "question_id": "question-2025-09-15",
+      "concept_refs": [
+        "concept-high-precision-add-sub"
+      ],
+      "primary_concept": "concept-high-precision-add-sub",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "数组表示整数加1，属于高精度加法范畴。"
+    },
+    {
+      "question_id": "question-2025-09-16",
+      "concept_refs": [
+        "concept-modular-arithmetic"
+      ],
+      "primary_concept": "concept-modular-arithmetic",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "验证整除9的性质，涉及同余与模运算。"
+    },
+    {
+      "question_id": "question-2025-09-17",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "求最小公倍数，依赖最大公约数，对应最大公约数与最小公倍数概念。"
+    },
+    {
+      "question_id": "question-2025-09-18",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "带记忆化的斐波那契递归时间复杂度为O(2^n)是错的，涉及递归复杂度分析。"
+    },
+    {
+      "question_id": "question-2025-09-19",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "primary_concept": "concept-linked-list",
+      "fallback_parent_used": true,
+      "confidence": 0.8,
+      "reason": "链表特点描述，涉及链表整体概念，无子概念直接对应。"
+    },
+    {
+      "question_id": "question-2025-09-20",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "二分查找的特性描述，直接对应二分查找概念。"
+    },
+    {
+      "question_id": "question-2025-09-21",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "线性筛特点描述，对应素数筛法概念。"
+    },
+    {
+      "question_id": "question-2025-09-22",
+      "concept_refs": [
+        "concept-quick-sort",
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.8,
+      "reason": "判断快速排序和归并排序的稳定性，涉及两个排序概念。"
+    },
+    {
+      "question_id": "question-2025-09-23",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "汉诺塔递归时间复杂度分析，属于递归复杂度分析。"
+    },
+    {
+      "question_id": "question-2025-09-24",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.8,
+      "reason": "递归与迭代转换的陈述，属于递归原理与应用。"
+    },
+    {
+      "question_id": "question-2025-09-25",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "贪心算法不一定得到最优解，属于贪心算法原理。"
+    },
+    {
+      "question_id": "question-2025-09-26",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.8,
+      "reason": "编程题需要选取互质数，解法和素数个数相关，核心是素数筛法。"
+    },
+    {
+      "question_id": "question-2025-09-27",
+      "concept_refs": [
+        "concept-recursion"
+      ],
+      "primary_concept": "concept-recursion",
+      "fallback_parent_used": true,
+      "confidence": 0.7,
+      "reason": "编程题使用递归分治计算二进制奇数个1的数的和，核心是递归算法。"
+    }
+  ]
+}

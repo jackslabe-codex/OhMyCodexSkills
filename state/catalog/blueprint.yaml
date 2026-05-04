@@ -4,54 +4,91 @@
   "levels": {
     "5": {
       "outline_source": "gesp_cpp_level5_standard.md",
+      "overview": "未可靠提取考核目标。",
       "modules": [
         {
-          "slug": "concept-number-theory",
+          "slug": "concept-elementary-number-theory",
           "name": "初等数论",
-          "prerequisites": []
+          "prerequisites": [],
+          "children": [
+            "concept-gcd-lcm",
+            "concept-modular-arithmetic",
+            "concept-prime-composite",
+            "concept-prime-factorization",
+            "concept-prime-sieves"
+          ]
         },
         {
-          "slug": "concept-complexity",
-          "name": "算法复杂度估算方法",
-          "prerequisites": []
-        },
-        {
-          "slug": "concept-cpp-high-precision",
-          "name": "C++高精度运算",
-          "prerequisites": []
+          "slug": "concept-high-precision-cpp",
+          "name": "C++ 高精度运算",
+          "prerequisites": [],
+          "children": [
+            "concept-high-precision-add-sub",
+            "concept-high-precision-mul-div"
+          ]
         },
         {
           "slug": "concept-linked-list",
           "name": "链表",
-          "prerequisites": []
+          "prerequisites": [],
+          "children": [
+            "concept-linked-list-advanced",
+            "concept-linked-list-basics",
+            "concept-linked-list-operations"
+          ]
         },
         {
-          "slug": "concept-binary-search",
+          "slug": "concept-algorithm-complexity",
+          "name": "算法复杂度",
+          "prerequisites": [],
+          "children": [
+            "concept-complexity-logarithmic",
+            "concept-complexity-polynomial"
+          ]
+        },
+        {
+          "slug": "concept-binary-algorithm",
           "name": "二分算法",
           "prerequisites": [
-            "concept-complexity"
+            "concept-algorithm-complexity"
+          ],
+          "children": [
+            "concept-binary-answer",
+            "concept-binary-search"
           ]
         },
         {
           "slug": "concept-recursion",
           "name": "递归算法",
           "prerequisites": [
-            "concept-complexity"
+            "concept-algorithm-complexity"
+          ],
+          "children": [
+            "concept-recursion-basics",
+            "concept-recursion-complexity",
+            "concept-recursion-optimization"
           ]
         },
         {
-          "slug": "concept-divide-and-conquer",
+          "slug": "concept-divide-conquer",
           "name": "分治算法",
           "prerequisites": [
-            "concept-recursion",
-            "concept-complexity"
+            "concept-recursion"
+          ],
+          "children": [
+            "concept-merge-sort",
+            "concept-quick-sort"
           ]
         },
         {
           "slug": "concept-greedy",
           "name": "贪心算法",
           "prerequisites": [
-            "concept-complexity"
+            "concept-algorithm-complexity"
+          ],
+          "children": [
+            "concept-greedy-basics",
+            "concept-optimal-substructure"
           ]
         }
       ]
@@ -62,113 +99,671 @@
       "level": 5,
       "source_file": "GESP_Cpp_2026_3_五级真题.md",
       "exam_page": "exam-2026-03",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2026-03.json",
+      "classification_template": "state/catalog/paper_ingest/results/2026-03.template.json"
     },
     "2025-12": {
       "level": 5,
       "source_file": "GESP_Cpp_2025_12_五级真题.md",
       "exam_page": "exam-2025-12",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "zhipu_direct",
+      "classification_model": "glm-4.7",
+      "classification_request": "state/catalog/paper_ingest/requests/2025-12.json",
+      "classification_template": "state/catalog/paper_ingest/results/2025-12.template.json"
     },
     "2024-12": {
       "level": 5,
       "source_file": "gesp_cpp_2024_12_五级真题.md",
       "exam_page": "exam-2024-12",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2024-12.json",
+      "classification_template": "state/catalog/paper_ingest/results/2024-12.template.json"
     },
     "2024-03": {
       "level": 5,
       "source_file": "gesp_cpp_2024_3_五级真题.md",
       "exam_page": "exam-2024-03",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2024-03.json",
+      "classification_template": "state/catalog/paper_ingest/results/2024-03.template.json"
     },
     "2024-06": {
       "level": 5,
       "source_file": "gesp_cpp_2024_6_五级真题.md",
       "exam_page": "exam-2024-06",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2024-06.json",
+      "classification_template": "state/catalog/paper_ingest/results/2024-06.template.json"
     },
     "2024-09": {
       "level": 5,
       "source_file": "gesp_cpp_2024_9_五级真题.md",
       "exam_page": "exam-2024-09",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2024-09.json",
+      "classification_template": "state/catalog/paper_ingest/results/2024-09.template.json"
     },
     "2025-03": {
       "level": 5,
       "source_file": "gesp_cpp_2025_3_五级真题.md",
       "exam_page": "exam-2025-03",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2025-03.json",
+      "classification_template": "state/catalog/paper_ingest/results/2025-03.template.json"
     },
     "2025-06": {
       "level": 5,
       "source_file": "gesp_cpp_2025_6_五级真题.md",
       "exam_page": "exam-2025-06",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2025-06.json",
+      "classification_template": "state/catalog/paper_ingest/results/2025-06.template.json"
     },
     "2025-09": {
       "level": 5,
       "source_file": "gesp_cpp_2025_9_五级真题.md",
       "exam_page": "exam-2025-09",
-      "question_count": 27
+      "question_count": 27,
+      "classification_mode": "deepseek_direct",
+      "classification_model": "deepseek-v4-flash",
+      "classification_request": "state/catalog/paper_ingest/requests/2025-09.json",
+      "classification_template": "state/catalog/paper_ingest/results/2025-09.template.json"
     }
   },
   "concepts": {
-    "concept-number-theory": {
+    "concept-elementary-number-theory": {
       "exam": "gesp",
       "level": 5,
+      "title": "concept-elementary-number-theory",
+      "name": "初等数论",
       "module": "初等数论",
-      "prerequisites": []
+      "summary": "掌握初等数论的基本概念，包括素数、合数、整除、同余等基础理论。",
+      "prerequisites": [],
+      "parent_concept": "",
+      "children": [
+        "concept-gcd-lcm",
+        "concept-modular-arithmetic",
+        "concept-prime-composite",
+        "concept-prime-factorization",
+        "concept-prime-sieves"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "初等数论",
+        "整数",
+        "整除"
+      ]
     },
-    "concept-complexity": {
+    "concept-prime-composite": {
       "exam": "gesp",
       "level": 5,
-      "module": "算法复杂度估算方法",
-      "prerequisites": []
+      "title": "concept-prime-composite",
+      "name": "素数与合数",
+      "module": "初等数论",
+      "summary": "理解素数与合数的定义，掌握奇偶性判断、约数与倍数的概念。",
+      "prerequisites": [],
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "素数",
+        "合数",
+        "质数",
+        "奇偶性",
+        "约数",
+        "倍数"
+      ]
     },
-    "concept-cpp-high-precision": {
+    "concept-gcd-lcm": {
       "exam": "gesp",
       "level": 5,
-      "module": "C++高精度运算",
-      "prerequisites": []
+      "title": "concept-gcd-lcm",
+      "name": "最大公约数与最小公倍数",
+      "module": "初等数论",
+      "summary": "掌握最大公约数（GCD）和最小公倍数（LCM）的定义及计算方法，重点掌握辗转相除法（欧几里得算法）。",
+      "prerequisites": [],
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "最大公约数",
+        "最小公倍数",
+        "GCD",
+        "LCM",
+        "辗转相除法",
+        "欧几里得算法"
+      ]
+    },
+    "concept-modular-arithmetic": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-modular-arithmetic",
+      "name": "同余与模运算",
+      "module": "初等数论",
+      "summary": "理解同余的概念，掌握模运算的基本性质及其在编程中的应用。",
+      "prerequisites": [],
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "同余",
+        "模运算",
+        "取模",
+        "余数"
+      ]
+    },
+    "concept-prime-factorization": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-prime-factorization",
+      "name": "质因数分解",
+      "module": "初等数论",
+      "summary": "掌握质因数分解的方法，理解并应用唯一分解定理（算术基本定理）。",
+      "prerequisites": [
+        "concept-prime-composite"
+      ],
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "质因数分解",
+        "唯一分解定理",
+        "算术基本定理"
+      ]
+    },
+    "concept-prime-sieves": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-prime-sieves",
+      "name": "素数筛法",
+      "module": "初等数论",
+      "summary": "掌握生成素数表的算法，包括埃氏筛法和线性筛法（欧拉筛）。",
+      "prerequisites": [
+        "concept-prime-composite"
+      ],
+      "parent_concept": "concept-elementary-number-theory",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "素数表",
+        "埃氏筛法",
+        "线性筛法",
+        "欧拉筛"
+      ]
+    },
+    "concept-high-precision-cpp": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-high-precision-cpp",
+      "name": "C++ 高精度运算",
+      "module": "C++ 高精度运算",
+      "summary": "掌握使用数组模拟大整数的高精度计算方法。",
+      "prerequisites": [],
+      "parent_concept": "",
+      "children": [
+        "concept-high-precision-add-sub",
+        "concept-high-precision-mul-div"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "高精度",
+        "大整数",
+        "数组模拟"
+      ]
+    },
+    "concept-high-precision-add-sub": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-high-precision-add-sub",
+      "name": "高精度加法与减法",
+      "module": "C++ 高精度运算",
+      "summary": "掌握使用数组模拟高精度加法和减法的实现，处理进位和借位。",
+      "prerequisites": [],
+      "parent_concept": "concept-high-precision-cpp",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "高精度加法",
+        "高精度减法",
+        "进位",
+        "借位"
+      ]
+    },
+    "concept-high-precision-mul-div": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-high-precision-mul-div",
+      "name": "高精度乘法与除法",
+      "module": "C++ 高精度运算",
+      "summary": "掌握使用数组模拟高精度乘法和除法的实现，理解竖式计算在编程中的模拟。",
+      "prerequisites": [
+        "concept-high-precision-add-sub"
+      ],
+      "parent_concept": "concept-high-precision-cpp",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "高精度乘法",
+        "高精度除法",
+        "模拟竖式"
+      ]
     },
     "concept-linked-list": {
       "exam": "gesp",
       "level": 5,
+      "title": "concept-linked-list",
+      "name": "链表",
       "module": "链表",
-      "prerequisites": []
+      "summary": "掌握链表数据结构的基本概念及其在内存中的存储方式。",
+      "prerequisites": [],
+      "parent_concept": "",
+      "children": [
+        "concept-linked-list-advanced",
+        "concept-linked-list-basics",
+        "concept-linked-list-operations"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "链表",
+        "指针",
+        "动态数据结构",
+        "节点"
+      ]
+    },
+    "concept-linked-list-basics": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-linked-list-basics",
+      "name": "单链表基础",
+      "module": "链表",
+      "summary": "掌握单链表的创建、遍历和查找操作。",
+      "prerequisites": [],
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "单链表",
+        "创建链表",
+        "遍历链表",
+        "查找节点"
+      ]
+    },
+    "concept-linked-list-operations": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-linked-list-operations",
+      "name": "链表插入与删除",
+      "module": "链表",
+      "summary": "掌握在链表中插入节点和删除节点的操作，注意指针的断开与重连。",
+      "prerequisites": [
+        "concept-linked-list-basics"
+      ],
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "插入节点",
+        "删除节点",
+        "指针操作"
+      ]
+    },
+    "concept-linked-list-advanced": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-linked-list-advanced",
+      "name": "双链表与循环链表",
+      "module": "链表",
+      "summary": "理解双链表和循环链表的结构特点，掌握其基本操作及链表反转算法。",
+      "prerequisites": [
+        "concept-linked-list-operations"
+      ],
+      "parent_concept": "concept-linked-list",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "双链表",
+        "循环链表",
+        "反转链表"
+      ]
+    },
+    "concept-algorithm-complexity": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-algorithm-complexity",
+      "name": "算法复杂度",
+      "module": "算法复杂度",
+      "summary": "掌握算法时间复杂度和空间复杂度的估算方法，理解大O记号。",
+      "prerequisites": [],
+      "parent_concept": "",
+      "children": [
+        "concept-complexity-logarithmic",
+        "concept-complexity-polynomial"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "时间复杂度",
+        "空间复杂度",
+        "大O记号",
+        "算法效率"
+      ]
+    },
+    "concept-complexity-polynomial": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-complexity-polynomial",
+      "name": "多项式复杂度",
+      "module": "算法复杂度",
+      "summary": "能够识别和分析 O(n), O(n^2), O(n^3) 等多项式级别的算法复杂度。",
+      "prerequisites": [],
+      "parent_concept": "concept-algorithm-complexity",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "多项式复杂度",
+        "O(n)",
+        "O(n^2)",
+        "O(n^3)"
+      ]
+    },
+    "concept-complexity-logarithmic": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-complexity-logarithmic",
+      "name": "对数复杂度",
+      "module": "算法复杂度",
+      "summary": "能够识别和分析 O(log n), O(n log n) 等对数级别的算法复杂度。",
+      "prerequisites": [],
+      "parent_concept": "concept-algorithm-complexity",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "对数复杂度",
+        "O(log n)",
+        "O(n log n)"
+      ]
+    },
+    "concept-binary-algorithm": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-binary-algorithm",
+      "name": "二分算法",
+      "module": "二分算法",
+      "summary": "掌握二分思想，能够在有序数据或具有单调性的解空间中进行快速查找。",
+      "prerequisites": [
+        "concept-algorithm-complexity"
+      ],
+      "parent_concept": "",
+      "children": [
+        "concept-binary-answer",
+        "concept-binary-search"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "二分",
+        "折半查找",
+        "单调性"
+      ]
     },
     "concept-binary-search": {
       "exam": "gesp",
       "level": 5,
+      "title": "concept-binary-search",
+      "name": "二分查找",
       "module": "二分算法",
+      "summary": "掌握在有序数组中进行二分查找的基本原理和实现，能够处理边界条件。",
       "prerequisites": [
-        "concept-complexity"
+        "concept-algorithm-complexity"
+      ],
+      "parent_concept": "concept-binary-algorithm",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "二分查找",
+        "有序数组",
+        "区间",
+        "边界条件"
+      ]
+    },
+    "concept-binary-answer": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-binary-answer",
+      "name": "二分答案",
+      "module": "二分算法",
+      "summary": "掌握二分答案（二分枚举法）的原理，能够将求最优解问题转化为判定性问题。",
+      "prerequisites": [
+        "concept-binary-search"
+      ],
+      "parent_concept": "concept-binary-algorithm",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "二分答案",
+        "二分枚举",
+        "最小化最大值",
+        "最大化最小值"
       ]
     },
     "concept-recursion": {
       "exam": "gesp",
       "level": 5,
+      "title": "concept-recursion",
+      "name": "递归算法",
       "module": "递归算法",
+      "summary": "掌握递归算法的设计思想，理解递归的执行过程和栈空间特性。",
       "prerequisites": [
-        "concept-complexity"
+        "concept-algorithm-complexity"
+      ],
+      "parent_concept": "",
+      "children": [
+        "concept-recursion-basics",
+        "concept-recursion-complexity",
+        "concept-recursion-optimization"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "递归",
+        "递归函数",
+        "基线条件",
+        "递归边界"
       ]
     },
-    "concept-divide-and-conquer": {
+    "concept-recursion-basics": {
       "exam": "gesp",
       "level": 5,
-      "module": "分治算法",
+      "title": "concept-recursion-basics",
+      "name": "递归原理与应用",
+      "module": "递归算法",
+      "summary": "理解递归的定义和调用机制，能够应用递归解决基础数学和逻辑问题。",
       "prerequisites": [
-        "concept-recursion",
-        "concept-complexity"
+        "concept-algorithm-complexity"
+      ],
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "递归原理",
+        "递归调用",
+        "递归终止",
+        "递归树"
+      ]
+    },
+    "concept-recursion-complexity": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-recursion-complexity",
+      "name": "递归复杂度分析",
+      "module": "递归算法",
+      "summary": "能够分析递归算法的时间复杂度和空间复杂度（栈深度）。",
+      "prerequisites": [
+        "concept-recursion-basics"
+      ],
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "递归时间复杂度",
+        "递归空间复杂度",
+        "主定理"
+      ]
+    },
+    "concept-recursion-optimization": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-recursion-optimization",
+      "name": "递归优化策略",
+      "module": "递归算法",
+      "summary": "了解递归的常见优化策略，如剪枝、记忆化搜索等。",
+      "prerequisites": [
+        "concept-recursion-complexity"
+      ],
+      "parent_concept": "concept-recursion",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "递归优化",
+        "剪枝",
+        "记忆化",
+        "尾递归"
+      ]
+    },
+    "concept-divide-conquer": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-divide-conquer",
+      "name": "分治算法",
+      "module": "分治算法",
+      "summary": "掌握分治算法的基本原理：分解、解决、合并。",
+      "prerequisites": [
+        "concept-recursion"
+      ],
+      "parent_concept": "",
+      "children": [
+        "concept-merge-sort",
+        "concept-quick-sort"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "分治",
+        "分治法",
+        "分解",
+        "合并"
+      ]
+    },
+    "concept-merge-sort": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-merge-sort",
+      "name": "归并排序",
+      "module": "分治算法",
+      "summary": "掌握归并排序的分治思想和实现，理解其稳定性和时间复杂度。",
+      "prerequisites": [
+        "concept-divide-conquer"
+      ],
+      "parent_concept": "concept-divide-conquer",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "归并排序",
+        "合并",
+        "稳定排序"
+      ]
+    },
+    "concept-quick-sort": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-quick-sort",
+      "name": "快速排序",
+      "module": "分治算法",
+      "summary": "掌握快速排序的分区思想和实现，理解基准值（Pivot）的选择和平均时间复杂度。",
+      "prerequisites": [
+        "concept-divide-conquer"
+      ],
+      "parent_concept": "concept-divide-conquer",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "快速排序",
+        "基准值",
+        "Partition",
+        "不稳定排序"
       ]
     },
     "concept-greedy": {
       "exam": "gesp",
       "level": 5,
+      "title": "concept-greedy",
+      "name": "贪心算法",
       "module": "贪心算法",
+      "summary": "掌握贪心算法的基本原理，理解局部最优选择对全局最优的影响。",
       "prerequisites": [
-        "concept-complexity"
+        "concept-algorithm-complexity"
+      ],
+      "parent_concept": "",
+      "children": [
+        "concept-greedy-basics",
+        "concept-optimal-substructure"
+      ],
+      "is_leaf": false,
+      "keywords": [
+        "贪心",
+        "贪心算法",
+        "局部最优",
+        "贪心策略"
+      ]
+    },
+    "concept-greedy-basics": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-greedy-basics",
+      "name": "贪心算法原理",
+      "module": "贪心算法",
+      "summary": "理解贪心算法的适用场景，能够设计简单的贪心策略解决问题。",
+      "prerequisites": [
+        "concept-algorithm-complexity"
+      ],
+      "parent_concept": "concept-greedy",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "贪心原理",
+        "贪心策略",
+        "局部最优解"
+      ]
+    },
+    "concept-optimal-substructure": {
+      "exam": "gesp",
+      "level": 5,
+      "title": "concept-optimal-substructure",
+      "name": "最优子结构",
+      "module": "贪心算法",
+      "summary": "理解最优子结构性质，能够证明问题是否适合使用贪心算法。",
+      "prerequisites": [
+        "concept-greedy-basics"
+      ],
+      "parent_concept": "concept-greedy",
+      "children": [],
+      "is_leaf": true,
+      "keywords": [
+        "最优子结构",
+        "无后效性",
+        "贪心选择性质"
       ]
     }
   },
@@ -180,5 +775,13 @@
   "naming": {
     "exam_page": "wiki/exams/exam-<year>-<month>.md",
     "question_page": "wiki/questions/question-<year>-<month>-<no>.md"
+  },
+  "classification": {
+    "mode": "llm_manual_import",
+    "max_concept_refs": 2,
+    "prefer_child_concepts": true,
+    "fallback_to_parent": true,
+    "invalid_policy": "needs_review",
+    "outline_model": "glm-4.7"
   }
 }

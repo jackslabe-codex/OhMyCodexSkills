@@ -1,15 +1,35 @@
 # Wiki Index
 
 ## Concepts
-- [[concept-number-theory]] — GESP C++ 五级考点：初等数论
-- [[concept-complexity]] — GESP C++ 五级考点：算法复杂度估算方法
-- [[concept-cpp-high-precision]] — GESP C++ 五级考点：C++高精度运算
+- [[concept-elementary-number-theory]] — GESP C++ 五级考点：初等数论
+- [[concept-prime-composite]] — GESP C++ 五级考点：素数与合数
+- [[concept-gcd-lcm]] — GESP C++ 五级考点：最大公约数与最小公倍数
+- [[concept-modular-arithmetic]] — GESP C++ 五级考点：同余与模运算
+- [[concept-prime-factorization]] — GESP C++ 五级考点：质因数分解
+- [[concept-prime-sieves]] — GESP C++ 五级考点：素数筛法
+- [[concept-high-precision-cpp]] — GESP C++ 五级考点：C++ 高精度运算
+- [[concept-high-precision-add-sub]] — GESP C++ 五级考点：高精度加法与减法
+- [[concept-high-precision-mul-div]] — GESP C++ 五级考点：高精度乘法与除法
 - [[concept-linked-list]] — GESP C++ 五级考点：链表
-- [[concept-binary-search]] — GESP C++ 五级考点：二分算法
+- [[concept-linked-list-basics]] — GESP C++ 五级考点：单链表基础
+- [[concept-linked-list-operations]] — GESP C++ 五级考点：链表插入与删除
+- [[concept-linked-list-advanced]] — GESP C++ 五级考点：双链表与循环链表
+- [[concept-algorithm-complexity]] — GESP C++ 五级考点：算法复杂度
+- [[concept-complexity-polynomial]] — GESP C++ 五级考点：多项式复杂度
+- [[concept-complexity-logarithmic]] — GESP C++ 五级考点：对数复杂度
+- [[concept-binary-algorithm]] — GESP C++ 五级考点：二分算法
+- [[concept-binary-search]] — GESP C++ 五级考点：二分查找
+- [[concept-binary-answer]] — GESP C++ 五级考点：二分答案
 - [[concept-recursion]] — GESP C++ 五级考点：递归算法
-- [[concept-divide-and-conquer]] — GESP C++ 五级考点：分治算法
+- [[concept-recursion-basics]] — GESP C++ 五级考点：递归原理与应用
+- [[concept-recursion-complexity]] — GESP C++ 五级考点：递归复杂度分析
+- [[concept-recursion-optimization]] — GESP C++ 五级考点：递归优化策略
+- [[concept-divide-conquer]] — GESP C++ 五级考点：分治算法
+- [[concept-merge-sort]] — GESP C++ 五级考点：归并排序
+- [[concept-quick-sort]] — GESP C++ 五级考点：快速排序
 - [[concept-greedy]] — GESP C++ 五级考点：贪心算法
-
+- [[concept-greedy-basics]] — GESP C++ 五级考点：贪心算法原理
+- [[concept-optimal-substructure]] — GESP C++ 五级考点：最优子结构
 ## Syntheses
 
 ## Questions

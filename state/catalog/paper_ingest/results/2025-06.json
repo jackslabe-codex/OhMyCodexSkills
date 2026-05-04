@@ -1,0 +1,276 @@
+{
+  "paper_id": "2025-06",
+  "classifications": [
+    {
+      "question_id": "question-2025-06-01",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "考察链表在已知位置插入或删除节点的高效性，直接对应链表操作。"
+    },
+    {
+      "question_id": "question-2025-06-02",
+      "concept_refs": [
+        "concept-linked-list-basics"
+      ],
+      "primary_concept": "concept-linked-list-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "判断双向链表是否为空是链表基础操作。"
+    },
+    {
+      "question_id": "question-2025-06-03",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "在双向链表尾部追加节点属于链表插入操作。"
+    },
+    {
+      "question_id": "question-2025-06-04",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "使用循环链表解决约瑟夫问题，涉及循环链表操作。"
+    },
+    {
+      "question_id": "question-2025-06-05",
+      "concept_refs": [
+        "concept-prime-composite"
+      ],
+      "primary_concept": "concept-prime-composite",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "判断一个正整数是否是质数，属于素数与合数概念。"
+    },
+    {
+      "question_id": "question-2025-06-06",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "比较两种求最大公约数的方法，核心是GCD。"
+    },
+    {
+      "question_id": "question-2025-06-07",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "比较素数筛法与试除法，涉及素数筛法效率。"
+    },
+    {
+      "question_id": "question-2025-06-08",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "唯一分解定理是质因数分解的核心性质。"
+    },
+    {
+      "question_id": "question-2025-06-09",
+      "concept_refs": [
+        "concept-divide-conquer",
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.9,
+      "reason": "求最大值采用分治递归实现，分治是核心算法。"
+    },
+    {
+      "question_id": "question-2025-06-10",
+      "concept_refs": [
+        "concept-complexity-polynomial"
+      ],
+      "primary_concept": "concept-complexity-polynomial",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "迭代求最大值时间复杂度为O(n)，属于多项式复杂度。"
+    },
+    {
+      "question_id": "question-2025-06-11",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "在升序数组中二分查找目标值最后一次出现位置，是二分查找的变体。"
+    },
+    {
+      "question_id": "question-2025-06-12",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "使用二分法求平方根，包括整数和浮点二分，属于二分答案。"
+    },
+    {
+      "question_id": "question-2025-06-13",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "硬币找零问题采用贪心算法，优先使用大面额。"
+    },
+    {
+      "question_id": "question-2025-06-14",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "快速排序的随机化版本，核心是快速排序算法。"
+    },
+    {
+      "question_id": "question-2025-06-15",
+      "concept_refs": [
+        "concept-high-precision-mul-div"
+      ],
+      "primary_concept": "concept-high-precision-mul-div",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "高精度除法实现，属于高精度乘除运算。"
+    },
+    {
+      "question_id": "question-2025-06-16",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "欧几里得算法求最大公约数，直接对应GCD。"
+    },
+    {
+      "question_id": "question-2025-06-17",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "求最小公倍数需要利用最大公约数，属于GCD/LCM。"
+    },
+    {
+      "question_id": "question-2025-06-18",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "输出每个数的质因数列表，属于质因数分解。"
+    },
+    {
+      "question_id": "question-2025-06-19",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "归并排序的递归过程，核心是归并排序。"
+    },
+    {
+      "question_id": "question-2025-06-20",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "归并排序的时间复杂度性质。"
+    },
+    {
+      "question_id": "question-2025-06-21",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "查字典的过程类比二分查找。"
+    },
+    {
+      "question_id": "question-2025-06-22",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "Dijkstra算法是贪心算法。"
+    },
+    {
+      "question_id": "question-2025-06-23",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.9,
+      "reason": "分治算法的概念和效率分析。"
+    },
+    {
+      "question_id": "question-2025-06-24",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "判断递归函数是否无限递归，考察递归原理。"
+    },
+    {
+      "question_id": "question-2025-06-25",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "线性筛法高效生成素数表，属于素数筛法。"
+    },
+    {
+      "question_id": "question-2025-06-26",
+      "concept_refs": [
+        "concept-binary-answer"
+      ],
+      "primary_concept": "concept-binary-answer",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "奖品兑换问题使用二分答案确定最大份数。"
+    },
+    {
+      "question_id": "question-2025-06-27",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "求多个数加i后的最大公因数，核心是GCD运算。"
+    }
+  ]
+}

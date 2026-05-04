@@ -1,0 +1,278 @@
+{
+  "paper_id": "2024-12",
+  "classifications": [
+    {
+      "question_id": "question-2024-12-01",
+      "concept_refs": [
+        "concept-linked-list-basics",
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察链表与数组的对比，涉及链表基本特性（动态大小、访问效率）和常见操作（插入删除），因此选择单链表基础和链表插入与删除两个子概念。"
+    },
+    {
+      "question_id": "question-2024-12-02",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目涉及循环单链表的特性，属于链表高级概念。"
+    },
+    {
+      "question_id": "question-2024-12-03",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目要求实现删除链表中特定值的节点，核心是链表插入与删除操作。"
+    },
+    {
+      "question_id": "question-2024-12-04",
+      "concept_refs": [
+        "concept-recursion-basics",
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目比较递推与递归计算斐波那契数列，涉及递归原理和递归复杂度分析。"
+    },
+    {
+      "question_id": "question-2024-12-05",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察辗转相除法求最大公约数，属于最大公约数与最小公倍数子概念。"
+    },
+    {
+      "question_id": "question-2024-12-06",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目要求实现质因数分解，核心是质因数分解子概念。"
+    },
+    {
+      "question_id": "question-2024-12-07",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察埃拉托色尼筛法，属于素数筛法子概念。"
+    },
+    {
+      "question_id": "question-2024-12-08",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察线性筛法，属于素数筛法子概念。"
+    },
+    {
+      "question_id": "question-2024-12-09",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察快速排序算法，属于快速排序子概念。"
+    },
+    {
+      "question_id": "question-2024-12-10",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察归并排序算法，属于归并排序子概念。"
+    },
+    {
+      "question_id": "question-2024-12-11",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察二分查找算法的递归实现，属于二分查找子概念。"
+    },
+    {
+      "question_id": "question-2024-12-12",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察二分查找求左边界，是二分查找的变种，核心仍是二分查找。"
+    },
+    {
+      "question_id": "question-2024-12-13",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察贪心算法分配饼干，属于贪心算法原理子概念。"
+    },
+    {
+      "question_id": "question-2024-12-14",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.9,
+      "reason": "题目考察分治算法的理解，涉及归并排序和快速排序，但核心是分治概念本身，无法进一步细分到单一子概念，因此使用父概念。"
+    },
+    {
+      "question_id": "question-2024-12-15",
+      "concept_refs": [
+        "concept-high-precision-add-sub"
+      ],
+      "primary_concept": "concept-high-precision-add-sub",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察高精度减法函数的实现，属于高精度加法与减法子概念。"
+    },
+    {
+      "question_id": "question-2024-12-16",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察单链表插入删除操作的位置，属于链表插入与删除子概念。"
+    },
+    {
+      "question_id": "question-2024-12-17",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察线性筛的特点，属于素数筛法子概念。"
+    },
+    {
+      "question_id": "question-2024-12-18",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察唯一分解定理，属于质因数分解子概念。"
+    },
+    {
+      "question_id": "question-2024-12-19",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察贪心算法的全局最优性，属于贪心算法原理子概念。"
+    },
+    {
+      "question_id": "question-2024-12-20",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察递归的结束条件，属于递归原理与应用子概念。"
+    },
+    {
+      "question_id": "question-2024-12-21",
+      "concept_refs": [
+        "concept-quick-sort",
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.85,
+      "reason": "题目考察快速排序和归并排序的时间复杂度和稳定性，核心是快速排序的不稳定性。"
+    },
+    {
+      "question_id": "question-2024-12-22",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.8,
+      "reason": "题目考察快速排序与插入排序的时间复杂度比较，核心是快速排序的时间复杂度特性。"
+    },
+    {
+      "question_id": "question-2024-12-23",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察二分查找对数据结构的要求，属于二分查找子概念。"
+    },
+    {
+      "question_id": "question-2024-12-24",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "题目考察二分查找的比较次数，属于二分查找子概念。"
+    },
+    {
+      "question_id": "question-2024-12-25",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "题目考察递归的内存占用，属于递归复杂度分析子概念。"
+    },
+    {
+      "question_id": "question-2024-12-26",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "编程题需对n进行质因数分解，核心是质因数分解子概念。"
+    },
+    {
+      "question_id": "question-2024-12-27",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "编程题使用贪心策略求解最小花费，核心是贪心算法原理子概念。"
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "paper_id": "2024-03",
+  "classifications": [
+    {
+      "question_id": "question-2024-03-01",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "唯一分解定理是质因数分解的核心内容。"
+    },
+    {
+      "question_id": "question-2024-03-02",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目考查贪心算法的核心思想。"
+    },
+    {
+      "question_id": "question-2024-03-03",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "代码实现阶乘的递归算法。"
+    },
+    {
+      "question_id": "question-2024-03-04",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "题目涉及双向链表节点的删除操作。"
+    },
+    {
+      "question_id": "question-2024-03-05",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "辗转相除法是求最大公约数的算法，即欧几里得算法。"
+    },
+    {
+      "question_id": "question-2024-03-06",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "分析递归斐波那契函数的时间复杂度。"
+    },
+    {
+      "question_id": "question-2024-03-07",
+      "concept_refs": [
+        "concept-high-precision-add-sub"
+      ],
+      "primary_concept": "concept-high-precision-add-sub",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "代码实现高精度整数加法。"
+    },
+    {
+      "question_id": "question-2024-03-08",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "二分查找算法执行过程的模拟。"
+    },
+    {
+      "question_id": "question-2024-03-09",
+      "concept_refs": [
+        "concept-prime-composite"
+      ],
+      "primary_concept": "concept-prime-composite",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "素数判断代码的逻辑修正。"
+    },
+    {
+      "question_id": "question-2024-03-10",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "埃拉托斯特尼筛法循环范围的确定。"
+    },
+    {
+      "question_id": "question-2024-03-11",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "线性筛法的时间复杂度分析。"
+    },
+    {
+      "question_id": "question-2024-03-12",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "归并排序的基本思想。"
+    },
+    {
+      "question_id": "question-2024-03-13",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "快速排序中主元素对性能的影响。"
+    },
+    {
+      "question_id": "question-2024-03-14",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "递归函数必须满足终止条件以避免无限递归。"
+    },
+    {
+      "question_id": "question-2024-03-15",
+      "concept_refs": [
+        "concept-linked-list-basics"
+      ],
+      "primary_concept": "concept-linked-list-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "单链表的查找操作。"
+    },
+    {
+      "question_id": "question-2024-03-16",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "辗转相除法用于求最大公约数。"
+    },
+    {
+      "question_id": "question-2024-03-17",
+      "concept_refs": [
+        "concept-complexity-polynomial"
+      ],
+      "primary_concept": "concept-complexity-polynomial",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "插入排序的时间复杂度为O(n^2)，属于多项式复杂度。"
+    },
+    {
+      "question_id": "question-2024-03-18",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "二分查找要求序列有序。"
+    },
+    {
+      "question_id": "question-2024-03-19",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "贪心算法局部最优不一定得到全局最优。"
+    },
+    {
+      "question_id": "question-2024-03-20",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.9,
+      "reason": "分治算法的核心思想是将大问题分解为子问题。"
+    },
+    {
+      "question_id": "question-2024-03-21",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "归并排序的时间复杂度为O(n log n)。"
+    },
+    {
+      "question_id": "question-2024-03-22",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "埃氏筛和线性筛的时间复杂度辨析。"
+    },
+    {
+      "question_id": "question-2024-03-23",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "贪心算法并非通用解决方案。"
+    },
+    {
+      "question_id": "question-2024-03-24",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "单链表和双链表头部插入删除操作的时间复杂度为O(1)。"
+    },
+    {
+      "question_id": "question-2024-03-25",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "递归调用占用栈空间，可能导致栈溢出。"
+    },
+    {
+      "question_id": "question-2024-03-26",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.7,
+      "reason": "编程题涉及排序，排序算法通常基于分治思想。"
+    },
+    {
+      "question_id": "question-2024-03-27",
+      "concept_refs": [
+        "concept-prime-sieves",
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 1.0,
+      "reason": "B-smooth数问题使用线性筛法求最大质因子，涉及素数筛法和质因数分解。"
+    }
+  ]
+}

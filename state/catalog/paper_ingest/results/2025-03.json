@@ -1,0 +1,276 @@
+{
+  "paper_id": "2025-03",
+  "classifications": [
+    {
+      "question_id": "question-2025-03-01",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "primary_concept": "concept-linked-list",
+      "fallback_parent_used": true,
+      "confidence": 0.8,
+      "reason": "问题考查链表的基本特点，没有更细的子概念直接对应，故使用父概念链表。"
+    },
+    {
+      "question_id": "question-2025-03-02",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题明确涉及双向链表的删除操作，属于双链表的操作范畴。"
+    },
+    {
+      "question_id": "question-2025-03-03",
+      "concept_refs": [
+        "concept-linked-list-advanced"
+      ],
+      "primary_concept": "concept-linked-list-advanced",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题涉及双向循环链表的初始化，属于双链表与循环链表的知识。"
+    },
+    {
+      "question_id": "question-2025-03-04",
+      "concept_refs": [
+        "concept-gcd-lcm"
+      ],
+      "primary_concept": "concept-gcd-lcm",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题直接考查辗转相除法求最大公约数。"
+    },
+    {
+      "question_id": "question-2025-03-05",
+      "concept_refs": [
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-prime-factorization",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题涉及唯一分解定理，即质因数分解。"
+    },
+    {
+      "question_id": "question-2025-03-06",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查线性筛法代码，属于素数筛法。"
+    },
+    {
+      "question_id": "question-2025-03-07",
+      "concept_refs": [
+        "concept-recursion-complexity"
+      ],
+      "primary_concept": "concept-recursion-complexity",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题涉及递归层数过多导致栈溢出，属于递归复杂度分析中的空间复杂度。"
+    },
+    {
+      "question_id": "question-2025-03-08",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查递归函数的定义和实现方式。"
+    },
+    {
+      "question_id": "question-2025-03-09",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.3,
+      "reason": "问题涉及排序算法的稳定性，但概念列表中没有直接对应的概念，分治算法下的排序（归并、快排）部分相关，但不够精确。"
+    },
+    {
+      "question_id": "question-2025-03-10",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查快速排序的分区函数实现。"
+    },
+    {
+      "question_id": "question-2025-03-11",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查二分查找的猜测次数。"
+    },
+    {
+      "question_id": "question-2025-03-12",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查二分查找的代码实现。"
+    },
+    {
+      "question_id": "question-2025-03-13",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查贪心算法的核心特征。"
+    },
+    {
+      "question_id": "question-2025-03-14",
+      "concept_refs": [
+        "concept-divide-conquer"
+      ],
+      "primary_concept": "concept-divide-conquer",
+      "fallback_parent_used": true,
+      "confidence": 0.85,
+      "reason": "问题考查分治算法求最大值，但子概念只有归并排序和快速排序，不直接匹配，故回退到父概念。"
+    },
+    {
+      "question_id": "question-2025-03-15",
+      "concept_refs": [
+        "concept-high-precision-mul-div"
+      ],
+      "primary_concept": "concept-high-precision-mul-div",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查高精度乘法的进位处理。"
+    },
+    {
+      "question_id": "question-2025-03-16",
+      "concept_refs": [
+        "concept-linked-list-operations"
+      ],
+      "primary_concept": "concept-linked-list-operations",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查单链表中删除非尾节点的操作。"
+    },
+    {
+      "question_id": "question-2025-03-17",
+      "concept_refs": [
+        "concept-linked-list"
+      ],
+      "primary_concept": "concept-linked-list",
+      "fallback_parent_used": true,
+      "confidence": 0.85,
+      "reason": "问题考查链表存储空间特点，没有更细的子概念直接对应。"
+    },
+    {
+      "question_id": "question-2025-03-18",
+      "concept_refs": [
+        "concept-prime-sieves"
+      ],
+      "primary_concept": "concept-prime-sieves",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查线性筛的原理。"
+    },
+    {
+      "question_id": "question-2025-03-19",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查贪心算法是否总能得到全局最优解。"
+    },
+    {
+      "question_id": "question-2025-03-20",
+      "concept_refs": [
+        "concept-recursion-basics"
+      ],
+      "primary_concept": "concept-recursion-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查递归的终止条件。"
+    },
+    {
+      "question_id": "question-2025-03-21",
+      "concept_refs": [
+        "concept-quick-sort"
+      ],
+      "primary_concept": "concept-quick-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查快速排序的时间复杂度特性。"
+    },
+    {
+      "question_id": "question-2025-03-22",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查归并排序的时间复杂度特性。"
+    },
+    {
+      "question_id": "question-2025-03-23",
+      "concept_refs": [
+        "concept-binary-search"
+      ],
+      "primary_concept": "concept-binary-search",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查二分查找的适用条件。"
+    },
+    {
+      "question_id": "question-2025-03-24",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.95,
+      "reason": "问题考查贪心策略与分治思想的区别。"
+    },
+    {
+      "question_id": "question-2025-03-25",
+      "concept_refs": [
+        "concept-merge-sort"
+      ],
+      "primary_concept": "concept-merge-sort",
+      "fallback_parent_used": false,
+      "confidence": 0.98,
+      "reason": "问题考查归并排序的分治思想。"
+    },
+    {
+      "question_id": "question-2025-03-26",
+      "concept_refs": [
+        "concept-greedy-basics"
+      ],
+      "primary_concept": "concept-greedy-basics",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "编程题涉及贪心策略，通过选择差值最大的物品实现最大收入。"
+    },
+    {
+      "question_id": "question-2025-03-27",
+      "concept_refs": [
+        "concept-modular-arithmetic",
+        "concept-prime-factorization"
+      ],
+      "primary_concept": "concept-modular-arithmetic",
+      "fallback_parent_used": false,
+      "confidence": 0.9,
+      "reason": "编程题考查原根判断，涉及模运算和质因数分解。"
+    }
+  ]
+}
